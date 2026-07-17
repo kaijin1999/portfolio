@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>[YOUR NAME] — 3D Artist</title>
+  <meta name="description" content="Portfolio of [YOUR NAME], 3D Artist — character, environment and prop art. Available for work." />
+  <meta name="theme-color" content="#0a0a0b" />
+
+  <!-- Open Graph / social preview -->
+  <meta property="og:title" content="[YOUR NAME] — 3D Artist" />
+  <meta property="og:description" content="3D Artist portfolio — characters, environments, props." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/work/01.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="top">
+    <a href="#top" class="nav__brand">[YOUR NAME]</a>
+    <nav class="nav__links" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#reel">Showreel</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="hero__inner">
+        <p class="hero__eyebrow">3D&nbsp;Artist · Character &amp; Environment</p>
+        <h1 class="hero__title">[YOUR NAME]</h1>
+        <p class="hero__lead">
+          I craft high-quality 3D characters, environments and props —
+          from concept and sculpt to final render. Currently open to new opportunities.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--solid" href="#work">View Work</a>
+          <a class="btn btn--ghost" href="assets/CV.pdf" download>Download CV</a>
+        </div>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">scroll</div>
+    </section>
+
+    <!-- ============ SHOWREEL ============ -->
+    <section class="section" id="reel">
+      <div class="section__head">
+        <h2 class="section__title">Showreel</h2>
+        <p class="section__sub">A minute of recent work</p>
+      </div>
+      <div class="reel">
+        <!-- Replace src with your exported Canva MP4 in assets/video/ -->
+        <video class="reel__video" controls playsinline preload="metadata" poster="assets/work/01.jpg">
+          <source src="assets/video/showreel.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </section>
+
+    <!-- ============ WORK ============ -->
+    <section class="section" id="work">
+      <div class="section__head">
+        <h2 class="section__title">Selected Work</h2>
+        <p class="section__sub">Click any piece to view larger</p>
+      </div>
+      <div class="grid" id="work-grid">
+        <!-- Cards are populated from the `works` array in main.js.
+             Drop images in assets/work/ and edit that array. -->
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section section--about" id="about">
+      <div class="about">
+        <div class="about__photo">
+          <img src="assets/work/portrait.jpg" alt="Portrait of [YOUR NAME]"
+               onerror="this.style.opacity=0" />
+        </div>
+        <div class="about__text">
+          <h2 class="section__title">About</h2>
+          <p>
+            I'm [YOUR NAME], a 3D artist with a focus on [character / environment / prop]
+            art. I love turning ideas into believable, production-ready assets with clean
+            topology, thoughtful materials and a strong sense of form and story.
+          </p>
+          <p>
+            [Add a couple of sentences: your experience, what you specialise in, and what
+            kind of role you're looking for.]
+          </p>
+          <h3 class="about__subtitle">Software &amp; Skills</h3>
+          <ul class="chips">
+            <li>Blender</li>
+            <li>ZBrush</li>
+            <li>Substance&nbsp;Painter</li>
+            <li>Maya</li>
+            <li>Marmoset</li>
+            <li>Unreal&nbsp;Engine</li>
+            <li>Photoshop</li>
+            <li>Retopology</li>
+            <li>PBR&nbsp;Texturing</li>
+            <li>Lighting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section section--contact" id="contact">
+      <div class="contact">
+        <h2 class="section__title">Let's work together</h2>
+        <p class="contact__lead">Available for freelance &amp; full-time 3D roles.</p>
+        <a class="contact__email" href="mailto:astter2542@gmail.com">astter2542@gmail.com</a>
+        <ul class="social">
+          <li><a href="#" target="_blank" rel="noopener">ArtStation</a></li>
+          <li><a href="#" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© <span id="year"></span> [YOUR NAME]</span>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <!-- ============ LIGHTBOX ============ -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox__close" aria-label="Close">✕</button>
+    <img class="lightbox__img" src="" alt="" />
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
