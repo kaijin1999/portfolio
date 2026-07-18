@@ -132,6 +132,18 @@ h1, h2, h3, .nav__brand {
   position: absolute; inset: 0; display: grid; place-items: center;
   color: var(--muted); font-size: .95rem; pointer-events: none;
 }
+.viewer__info {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  min-width: 200px; padding: 12px 14px; border-radius: 10px;
+  background: rgba(14,14,16,.82); border: 1px solid var(--line);
+  backdrop-filter: blur(8px); font-size: .85rem;
+  opacity: 0; transform: translateY(-6px); pointer-events: none;
+  transition: opacity .25s var(--ease), transform .25s var(--ease);
+}
+.viewer__info.is-open { opacity: 1; transform: none; }
+.viewer__info-row { display: flex; justify-content: space-between; gap: 20px; padding: 3px 0; }
+.viewer__info-row span { color: var(--muted); }
+.viewer__info-row b { color: var(--text); font-family: "Space Grotesk", sans-serif; font-weight: 600; }
 .viewer__bar {
   display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
   padding: 14px 16px; border-top: 1px solid var(--line);
