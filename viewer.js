@@ -11,8 +11,8 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 /* ---- EDIT ME: add models here (name + path in assets/models/) ---- */
 const MODELS = [
-  { name: "Valkyrie", url: "assets/models/valkyrie.glb" },
-  { name: "Kaijin",   url: "assets/models/kaijin.glb" },
+  { name: "Valkyrie", url: "assets/models/valkyrie.glb", thumb: "assets/models/thumbs/valkyrie.jpg" },
+  { name: "Kaijin",   url: "assets/models/kaijin.glb",   thumb: "assets/models/thumbs/kaijin.jpg" },
 ];
 
 const stage = document.getElementById("viewer-stage");
@@ -201,11 +201,19 @@ function initViewer() {
   }
 
   /* ---------- UI wiring ---------- */
-  // Model dropdown
-  const modelSel = document.getElementById("viewer-model");
-  if (modelSel) {
-    modelSel.innerHTML = MODELS.map((m, i) => `<option value="${m.url}">${m.name}</option>`).join("");
-    modelSel.addEventListener("change", () => loadModel(modelSel.value));
+  // Character-select cards (game-style)
+  const charWrap = document.getElementById("viewer-chars");
+  if (charWrap) {
+    charWrap.innerHTML = MODELS.map((m, i) => `
+      <button class="charbtn${i === 0 ? " is-active" : ""}" type="button" data-url="${m.url}" title="${m.name}">
+        <img src="${m.thumb}" alt="${m.name}" loading="lazy" />
+        <span>${m.name}</span>
+      </button>`).join("");
+    charWrap.querySelectorAll(".charbtn").forEach((b) => b.addEventListener("click", () => {
+      if (b.classList.contains("is-active")) return;
+      charWrap.querySelectorAll(".charbtn").forEach((x) => x.classList.toggle("is-active", x === b));
+      loadModel(b.dataset.url);
+    }));
   }
 
   // Mode buttons

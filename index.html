@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=5" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
   <!-- ============ NAV ============ -->
@@ -86,13 +86,10 @@
           <div class="viewer__loading" id="viewer-loading">Loading 3D model…</div>
           <div class="viewer__info" id="viewer-info"></div>
           <div class="viewer__hint">drag = rotate · scroll = zoom · right-drag = pan</div>
+          <div class="viewer__chars" id="viewer-chars" role="group" aria-label="Choose character"></div>
         </div>
         <div class="viewer__bar">
           <div class="viewer__group">
-            <label class="viewer__model">
-              <span>Model</span>
-              <select id="viewer-model" aria-label="Choose model"></select>
-            </label>
             <div class="viewer__modes" role="group" aria-label="Render mode">
               <button class="vbtn is-active" type="button" data-mode="shaded">Shaded</button>
               <button class="vbtn" type="button" data-mode="base">Base Color</button>
@@ -280,7 +277,7 @@
     <img class="lightbox__img" src="" alt="" />
   </div>
 
-  <script src="main.js?v=5"></script>
+  <script src="main.js?v=6"></script>
 
   <!-- 3D Viewer (Three.js via CDN modules) -->
   <script type="importmap">
@@ -291,6 +288,6 @@
     }
   }
   </script>
-  <script type="module" src="viewer.js?v=5"></script>
+  <script type="module" src="viewer.js?v=6"></script>
 </body>
 </html>
