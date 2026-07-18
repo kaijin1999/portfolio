@@ -8,18 +8,26 @@
    (falls back to `img` if omitted).
 ---------------------------------------------------------------- */
 const works = [
-  { img: "assets/work/04.jpg", title: "Mio",             tags: "Character · Stylized" },
-  { img: "assets/work/05.jpg", title: "Nami",            tags: "Character · Stylized" },
-  { img: "assets/work/06.jpg", title: "Naihe",           tags: "Character · Stylized" },
-  { img: "assets/work/07.jpg", title: "Kriger",          tags: "Character · Stylized" },
-  { img: "assets/work/08.jpg", title: "Valkyrie",        tags: "Character · Stylized" },
-  { img: "assets/work/09.jpg", title: "Xinyun",          tags: "Character · Stylized" },
-  { img: "assets/work/10.jpg", title: "Athan",           tags: "Character · Stylized" },
-  { img: "assets/work/11.jpg", title: "Jindoe",          tags: "Character · Stylized" },
-  { img: "assets/work/12.jpg", title: "3D Character",    tags: "Character · Real-time" },
-  { img: "assets/work/01.jpg", title: "Voidfang Dagger", tags: "Weapon · Hard-Surface" },
-  { img: "assets/work/02.jpg", title: "Rune Sword",      tags: "Weapon · Hard-Surface" },
-  { img: "assets/work/03.jpg", title: "Wood Sword",      tags: "Weapon · Prop" },
+  { img: "assets/work/04.jpg",                      title: "Mio",              tags: "Character · Stylized" },
+  { img: "assets/work/roblox-golden-stand.png",     title: "Golden Stand",     tags: "Roblox · Character" },
+  { img: "assets/work/weapon-pack.png",             title: "Stylized Weapon Pack", tags: "Weapons · Game-Ready" },
+  { img: "assets/work/06.jpg",                      title: "Naihe",            tags: "Character · Stylized" },
+  { img: "assets/work/roblox-dio.png",              title: "DIO",              tags: "Roblox · Character" },
+  { img: "assets/work/08.jpg",                      title: "Valkyrie",         tags: "Character · Stylized" },
+  { img: "assets/work/roblox-silver-guardian.png",  title: "Silver Guardian",  tags: "Roblox · Character" },
+  { img: "assets/work/05.jpg",                      title: "Nami",             tags: "Character · Stylized" },
+  { img: "assets/work/roblox-eagle.png",            title: "Eagle Warrior",    tags: "Roblox · UGC" },
+  { img: "assets/work/07.jpg",                      title: "Kriger",           tags: "Character · Stylized" },
+  { img: "assets/work/cyborg-bear.png",             title: "Cyborg Bear",      tags: "Creature" },
+  { img: "assets/work/09.jpg",                      title: "Xinyun",           tags: "Character · Stylized" },
+  { img: "assets/work/10.jpg",                      title: "Athan",            tags: "Character · Stylized" },
+  { img: "assets/work/mecha-hounds.png",            title: "Mecha Hounds",     tags: "Creature · Unity" },
+  { img: "assets/work/11.jpg",                      title: "Jindoe",           tags: "Character · Stylized" },
+  { img: "assets/work/kuromi.png",                  title: "Kuromi",           tags: "Stylized · Fanart" },
+  { img: "assets/work/12.jpg",                      title: "3D Character",     tags: "Character · Real-time" },
+  { img: "assets/work/01.jpg",                      title: "Voidfang Dagger",  tags: "Weapon · Hard-Surface" },
+  { img: "assets/work/02.jpg",                      title: "Rune Sword",       tags: "Weapon · Hard-Surface" },
+  { img: "assets/work/03.jpg",                      title: "Wood Sword",       tags: "Weapon · Prop" },
 ];
 
 /* ---- Build the work grid ---- */
