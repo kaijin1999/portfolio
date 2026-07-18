@@ -32,6 +32,7 @@ const workCats = [
     { img: "assets/work/char-tribal.jpg",    title: "Tribal Huntress",  tags: "Stylized" },
     { img: "assets/work/char-casual.jpg",    title: "Street Casual",    tags: "Stylized" },
     { img: "assets/work/char-cleric.jpg",    title: "Cleric",           tags: "Stylized" },
+    { img: "assets/work/char-cybergirl.png", title: "Neon Valkyrie",    tags: "Cyberpunk" },
   ]},
   { name: "Roblox UGC", items: [
     { img: "assets/work/roblox-golden-stand.png",    title: "Golden Stand",    tags: "Character" },
@@ -44,18 +45,25 @@ const workCats = [
     { img: "assets/work/roblox-purple-emperor.png",  title: "Purple Emperor",  tags: "Character" },
     { img: "assets/work/roblox-golden-titan.png",    title: "Golden Titan",    tags: "Character" },
     { img: "assets/work/roblox-crimson.png",         title: "Crimson Fighter", tags: "Character" },
+    { img: "assets/work/roblox-spike-emperor.png",   title: "Spike Emperor",   tags: "Character" },
+    { img: "assets/work/roblox-golden-world.png",    title: "Golden World",    tags: "Character" },
+    { img: "assets/work/roblox-azure.png",           title: "Azure Stand",     tags: "Character" },
   ]},
   { name: "Weapons & Items", items: [
     { img: "assets/work/weapon-pack.png", title: "Stylized Weapon Pack", tags: "Game-Ready" },
     { img: "assets/work/01.jpg",          title: "Voidfang Dagger",      tags: "Hard-Surface" },
     { img: "assets/work/02.jpg",          title: "Rune Sword",           tags: "Hard-Surface" },
     { img: "assets/work/03.jpg",          title: "Wood Sword",           tags: "Prop" },
+    { img: "assets/work/item-outfit.png", title: "UGC Outfit",           tags: "Clothing" },
   ]},
   { name: "Creatures", items: [
     { img: "assets/work/cyborg-bear.png",  title: "Cyborg Bear",  tags: "Creature" },
     { img: "assets/work/mecha-hounds.png", title: "Mecha Hounds", tags: "Creature · Unity" },
     { img: "assets/work/kuromi.png",       title: "Kuromi",       tags: "Stylized · Fanart" },
-    { img: "assets/work/creature-rat.png", title: "Rat",          tags: "Creature" },
+    { img: "assets/work/creature-rat.png",       title: "Rat",         tags: "Creature" },
+    { img: "assets/work/creature-cat-plush.png", title: "Cat Plush",   tags: "Prop" },
+    { img: "assets/work/creature-dog.png",       title: "Puppy",       tags: "Creature · Rig" },
+    { img: "assets/work/creature-rat-rig.png",   title: "Rat",         tags: "Creature · Rig" },
   ]},
 ];
 
