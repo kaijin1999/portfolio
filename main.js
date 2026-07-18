@@ -36,25 +36,49 @@ if (grid) {
     </figure>`).join("");
 }
 
-/* ---- Lightbox ---- */
+/* ---- Lightbox (images + turntable videos) ---- */
 const lightbox = document.getElementById("lightbox");
 const lbImg = lightbox?.querySelector(".lightbox__img");
+
+function closeLightbox() {
+  if (!lightbox) return;
+  const v = lightbox.querySelector("video");
+  if (v) v.remove();               // stop playback + sound
+  if (lbImg) lbImg.style.display = "none";
+  lightbox.classList.remove("is-open");
+  lightbox.setAttribute("aria-hidden", "true");
+}
+
 document.addEventListener("click", (e) => {
+  // Image work cards
   const card = e.target.closest(".card");
   if (card && lightbox) {
+    lightbox.querySelector("video")?.remove();
+    lbImg.style.display = "";
     lbImg.src = card.dataset.full;
     lbImg.alt = card.dataset.title || "";
     lightbox.classList.add("is-open");
     lightbox.setAttribute("aria-hidden", "false");
+    return;
   }
-  if (e.target.closest(".lightbox__close") || e.target === lightbox) {
-    lightbox?.classList.remove("is-open");
-    lightbox?.setAttribute("aria-hidden", "true");
+  // Turntable video cards
+  const reel = e.target.closest(".reel-card");
+  if (reel && lightbox) {
+    const srcEl = reel.querySelector("video");
+    if (lbImg) lbImg.style.display = "none";
+    lightbox.querySelector("video")?.remove();
+    const v = document.createElement("video");
+    v.src = srcEl.getAttribute("src");
+    v.controls = true; v.autoplay = true; v.loop = true; v.playsInline = true;
+    lightbox.appendChild(v);
+    lightbox.classList.add("is-open");
+    lightbox.setAttribute("aria-hidden", "false");
+    return;
   }
+  // Close
+  if (e.target.closest(".lightbox__close") || e.target === lightbox) closeLightbox();
 });
-document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") { lightbox?.classList.remove("is-open"); }
-});
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
 
 /* ---- Mobile nav ---- */
 const toggle = document.querySelector(".nav__toggle");

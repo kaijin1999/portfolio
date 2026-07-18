@@ -118,6 +118,29 @@ h1, h2, h3, .nav__brand {
 .reel { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--bg-soft); }
 .reel__video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000; }
 
+/* ---------- TURNTABLES ---------- */
+.reel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+.reel-card {
+  position: relative; border-radius: var(--radius); overflow: hidden;
+  background: #000; border: 1px solid var(--line); cursor: pointer;
+}
+.reel-card video {
+  width: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; background: #000;
+  transition: transform .5s var(--ease);
+}
+.reel-card:hover video { transform: scale(1.04); }
+.reel-card figcaption {
+  position: absolute; inset: auto 0 0 0; padding: 30px 16px 13px;
+  background: linear-gradient(transparent, rgba(0,0,0,.82));
+  font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: .95rem;
+  pointer-events: none;
+}
+.reel-card::after {
+  content: "▶"; position: absolute; top: 12px; right: 14px; font-size: .8rem;
+  color: #fff; background: rgba(0,0,0,.45); width: 30px; height: 30px; border-radius: 50%;
+  display: grid; place-items: center; opacity: .85; pointer-events: none;
+}
+
 /* ---------- WORK GRID ---------- */
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
 .card {
@@ -186,6 +209,7 @@ h1, h2, h3, .nav__brand {
 }
 .lightbox.is-open { display: flex; }
 .lightbox__img { max-width: 92vw; max-height: 88vh; border-radius: 8px; }
+.lightbox video { max-width: 92vw; max-height: 88vh; border-radius: 8px; background: #000; }
 .lightbox__close {
   position: absolute; top: 22px; right: 26px; background: none; border: 0;
   color: #fff; font-size: 1.6rem; cursor: pointer; opacity: .8;
