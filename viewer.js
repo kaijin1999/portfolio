@@ -5,7 +5,6 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 
 /* ---- EDIT ME: drop a .glb/.gltf in assets/models/ and point here ---- */
 const MODEL_URL = "assets/models/valkyrie.glb";
@@ -24,18 +23,20 @@ function initViewer() {
   const renderer = new THREE.WebGLRenderer({ antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.05;
+  // No tone mapping → keep the flat, saturated painted-texture (anime) colours
+  renderer.toneMapping = THREE.NoToneMapping;
   stage.appendChild(renderer.domElement);
 
-  // Soft studio lighting via a generated environment (good for PBR materials)
-  const pmrem = new THREE.PMREMGenerator(renderer);
-  scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
-
-  const key = new THREE.DirectionalLight(0xffffff, 2.0);
-  key.position.set(3, 5, 4);
+  // Flat, bright "anime" lighting — no environment reflections, mostly even
+  // fill so the character keeps its texture colours with only gentle form.
+  scene.add(new THREE.AmbientLight(0xffffff, 1.75));
+  const key = new THREE.DirectionalLight(0xffffff, 1.3);
+  key.position.set(2, 4, 5);
   scene.add(key);
-  scene.add(new THREE.HemisphereLight(0xffffff, 0x20201f, 0.5));
+  const fill = new THREE.DirectionalLight(0xffffff, 0.6);
+  fill.position.set(-3, 2, -3);
+  scene.add(fill);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x3a3a3a, 0.6));
 
   const controls = new OrbitControls(camera, renderer.domElement);
   controls.enableDamping = true;
@@ -58,6 +59,24 @@ function initViewer() {
       const center = box.getCenter(new THREE.Vector3());
       root.position.sub(center);            // center at origin
       scene.add(root);
+
+      // --- Anime look: matte materials + make emissive parts glow ---
+      root.traverse((o) => {
+        if (!o.isMesh) return;
+        const mats = Array.isArray(o.material) ? o.material : [o.material];
+        mats.forEach((m) => {
+          if (!m) return;
+          if ("metalness" in m) m.metalness = 0;   // no PBR sheen
+          if ("roughness" in m) m.roughness = 1;   // fully matte
+          if (m.map) m.map.colorSpace = THREE.SRGBColorSpace;
+          // Boost glow on emissive parts (e.g. the halo & the light weapon)
+          if (m.emissive && (m.emissiveMap || m.emissive.getHex() > 0x050505)) {
+            if (m.emissiveMap) m.emissiveMap.colorSpace = THREE.SRGBColorSpace;
+            m.emissiveIntensity = Math.max(m.emissiveIntensity || 1, 1.8);
+          }
+          m.needsUpdate = true;
+        });
+      });
 
       const radius = Math.max(size.x, size.y, size.z) * 0.5 || 1;
       const dist = radius / Math.sin((camera.fov * Math.PI) / 180 / 2);
