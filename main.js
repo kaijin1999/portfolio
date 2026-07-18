@@ -8,12 +8,18 @@
    (falls back to `img` if omitted).
 ---------------------------------------------------------------- */
 const works = [
-  { img: "assets/work/01.jpg", title: "Project One",   tags: "Character · ZBrush" },
-  { img: "assets/work/02.jpg", title: "Project Two",   tags: "Environment · Blender" },
-  { img: "assets/work/03.jpg", title: "Project Three", tags: "Prop · Substance" },
-  { img: "assets/work/04.jpg", title: "Project Four",  tags: "Character · Stylized" },
-  { img: "assets/work/05.jpg", title: "Project Five",  tags: "Hard Surface" },
-  { img: "assets/work/06.jpg", title: "Project Six",   tags: "Environment · UE5" },
+  { img: "assets/work/04.jpg", title: "Mio",             tags: "Character · Stylized" },
+  { img: "assets/work/05.jpg", title: "Nami",            tags: "Character · Stylized" },
+  { img: "assets/work/06.jpg", title: "Naihe",           tags: "Character · Stylized" },
+  { img: "assets/work/07.jpg", title: "Kriger",          tags: "Character · Stylized" },
+  { img: "assets/work/08.jpg", title: "Valkyrie",        tags: "Character · Stylized" },
+  { img: "assets/work/09.jpg", title: "Xinyun",          tags: "Character · Stylized" },
+  { img: "assets/work/10.jpg", title: "Athan",           tags: "Character · Stylized" },
+  { img: "assets/work/11.jpg", title: "Jindoe",          tags: "Character · Stylized" },
+  { img: "assets/work/12.jpg", title: "3D Character",    tags: "Character · Real-time" },
+  { img: "assets/work/01.jpg", title: "Voidfang Dagger", tags: "Weapon · Hard-Surface" },
+  { img: "assets/work/02.jpg", title: "Rune Sword",      tags: "Weapon · Hard-Surface" },
+  { img: "assets/work/03.jpg", title: "Wood Sword",      tags: "Weapon · Prop" },
 ];
 
 /* ---- Build the work grid ---- */
