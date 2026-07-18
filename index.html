@@ -87,12 +87,18 @@
           <div class="viewer__info" id="viewer-info"></div>
         </div>
         <div class="viewer__bar">
-          <button class="btn btn--ghost" id="viewer-shade" type="button">Shading: Anime</button>
-          <button class="btn btn--solid" id="viewer-wire" type="button">Topology: Off</button>
+          <div class="viewer__modes" role="group" aria-label="Render mode">
+            <button class="vbtn is-active" type="button" data-mode="shaded">Shaded</button>
+            <button class="vbtn" type="button" data-mode="base">Base Color</button>
+            <button class="vbtn" type="button" data-mode="wire">Wireframe</button>
+            <button class="vbtn" type="button" data-mode="matcap">Matcap</button>
+            <button class="vbtn" type="button" data-mode="normals">Normals</button>
+            <button class="vbtn" type="button" data-mode="uv">UV</button>
+          </div>
           <button class="btn btn--ghost" id="viewer-info-btn" type="button">Model Info: Off</button>
           <button class="btn btn--ghost" id="viewer-rotate" type="button">Auto-rotate: On</button>
           <button class="btn btn--ghost" id="viewer-reset" type="button">Reset view</button>
-          <span class="viewer__hint">drag = rotate · scroll = zoom · right-drag = pan</span>
+          <span class="viewer__hint">drag · scroll · right-drag</span>
         </div>
       </div>
     </section>
