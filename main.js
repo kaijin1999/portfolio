@@ -68,9 +68,7 @@ const workCats = [
 ];
 
 /* ---- Build categorised work grids ---- */
-const catWrap = document.getElementById("work-cats");
-if (catWrap) {
-  catWrap.innerHTML = workCats.map((cat) => `
+const catHTML = (cats) => cats.map((cat) => `
     <div class="cat">
       <h3 class="cat__title">${cat.name} <span class="cat__count">${cat.items.length}</span></h3>
       <div class="grid">
@@ -85,7 +83,12 @@ if (catWrap) {
           </figure>`).join("")}
       </div>
     </div>`).join("");
-}
+
+// Characters render first; the rest render below the Rigging/Unity sections.
+const topWrap = document.getElementById("work-cats-top");
+const restWrap = document.getElementById("work-cats-rest");
+if (topWrap)  topWrap.innerHTML  = catHTML(workCats.slice(0, 1));
+if (restWrap) restWrap.innerHTML = catHTML(workCats.slice(1));
 
 /* ---- Lightbox (images + turntable/video cards) ---- */
 const lightbox = document.getElementById("lightbox");
