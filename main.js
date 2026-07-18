@@ -8,6 +8,7 @@
 ---------------------------------------------------------------- */
 const workCats = [
   { name: "Characters", items: [
+    { img: "assets/work/char-scarlet.jpg",   title: "Scarlet",          tags: "Stylized" },
     { img: "assets/work/04.jpg",             title: "Mio",              tags: "Stylized" },
     { img: "assets/work/char-seraph.jpg",    title: "Nocturne Seraph",  tags: "Stylized" },
     { img: "assets/work/06.jpg",             title: "Naihe",            tags: "Stylized" },
