@@ -118,6 +118,28 @@ h1, h2, h3, .nav__brand {
 .reel { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--line); background: var(--bg-soft); }
 .reel__video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: #000; }
 
+/* ---------- 3D VIEWER ---------- */
+.viewer { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--bg-soft); }
+.viewer__stage {
+  position: relative; width: 100%; height: clamp(360px, 60vh, 620px);
+  background:
+    radial-gradient(120% 90% at 50% 15%, #17171b 0%, #0e0e10 70%);
+  cursor: grab;
+}
+.viewer__stage:active { cursor: grabbing; }
+.viewer__stage canvas { display: block; width: 100% !important; height: 100% !important; }
+.viewer__loading {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  color: var(--muted); font-size: .95rem; pointer-events: none;
+}
+.viewer__bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 14px 16px; border-top: 1px solid var(--line);
+}
+.viewer__bar .btn { padding: 9px 18px; font-size: .88rem; }
+.viewer__hint { margin-left: auto; color: var(--muted); font-size: .82rem; }
+@media (max-width: 560px) { .viewer__hint { margin-left: 0; width: 100%; } }
+
 /* ---------- TURNTABLES ---------- */
 .reel-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
 .reel-card {

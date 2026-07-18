@@ -24,6 +24,7 @@
     <a href="#top" class="nav__brand">Jakkarin&nbsp;Sonchai</a>
     <nav class="nav__links" aria-label="Primary">
       <a href="#work">Work</a>
+      <a href="#viewer">3D</a>
       <a href="#reel">Turntables</a>
       <a href="#rigging">Rigging</a>
       <a href="#unity">Unity</a>
@@ -71,6 +72,25 @@
         <figure class="reel-card"><video src="assets/video/naihe-cyberpunk.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Naihe · Cyberpunk</figcaption></figure>
         <figure class="reel-card"><video src="assets/video/turn-seraph.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Nocturne Seraph</figcaption></figure>
         <figure class="reel-card"><video src="assets/video/turn-freya.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Freya</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ 3D VIEWER ============ -->
+    <section class="section" id="viewer">
+      <div class="section__head">
+        <h2 class="section__title">3D Viewer</h2>
+        <p class="section__sub">Rotate &amp; zoom a real 3D model — toggle wireframe to inspect the topology</p>
+      </div>
+      <div class="viewer">
+        <div class="viewer__stage" id="viewer-stage">
+          <div class="viewer__loading" id="viewer-loading">Loading 3D model…</div>
+        </div>
+        <div class="viewer__bar">
+          <button class="btn btn--solid" id="viewer-wire" type="button">Topology: Off</button>
+          <button class="btn btn--ghost" id="viewer-rotate" type="button">Auto-rotate: On</button>
+          <button class="btn btn--ghost" id="viewer-reset" type="button">Reset view</button>
+          <span class="viewer__hint">drag = rotate · scroll = zoom · right-drag = pan</span>
+        </div>
       </div>
     </section>
 
@@ -244,5 +264,16 @@
   </div>
 
   <script src="main.js"></script>
+
+  <!-- 3D Viewer (Three.js via CDN modules) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="viewer.js"></script>
 </body>
 </html>
