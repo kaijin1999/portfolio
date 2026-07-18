@@ -12,7 +12,7 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 /* ---- EDIT ME: add models here (name + path in assets/models/) ---- */
 const MODELS = [
   { name: "Valkyrie", url: "assets/models/valkyrie.glb", thumb: "assets/models/thumbs/valkyrie.jpg" },
-  { name: "Kaijin",   url: "assets/models/kaijin.glb",   thumb: "assets/models/thumbs/kaijin.jpg" },
+  { name: "Kaijin",   url: "assets/models/kaijin.glb?v=2", thumb: "assets/models/thumbs/kaijin.jpg" },
 ];
 
 const stage = document.getElementById("viewer-stage");
