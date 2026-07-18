@@ -34,8 +34,6 @@ const workCats = [
     { img: "assets/work/char-casual.jpg",    title: "Street Casual",    tags: "Stylized" },
     { img: "assets/work/char-cleric.jpg",    title: "Cleric",           tags: "Stylized" },
     { img: "assets/work/char-cybergirl.png", title: "Neon Valkyrie",    tags: "Cyberpunk" },
-    { img: "assets/work/rig-character.png",  title: "Character Rig",     tags: "Blender · Rig" },
-    { img: "assets/work/rig-oni.png",        title: "Oni Maiden",        tags: "Blender · Rig" },
   ]},
   { name: "Roblox UGC", items: [
     { img: "assets/work/roblox-golden-stand.png",    title: "Golden Stand",    tags: "Character" },
