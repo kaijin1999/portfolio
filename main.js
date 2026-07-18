@@ -25,12 +25,25 @@ const workCats = [
     { img: "assets/work/cyber-kriger.jpg",   title: "Kriger",           tags: "Cyberpunk" },
     { img: "assets/work/11.jpg",             title: "Jindoe",           tags: "Stylized" },
     { img: "assets/work/12.jpg",             title: "3D Character",     tags: "Real-time" },
+    { img: "assets/work/char-aurora.jpg",    title: "Aurora Seraph",    tags: "Stylized" },
+    { img: "assets/work/char-jade.jpg",      title: "Jade Cultivator",  tags: "Stylized" },
+    { img: "assets/work/char-solar.jpg",     title: "Solar Warden",     tags: "Stylized" },
+    { img: "assets/work/char-divineoni.jpg", title: "Divine Oni",       tags: "Stylized" },
+    { img: "assets/work/char-tribal.jpg",    title: "Tribal Huntress",  tags: "Stylized" },
+    { img: "assets/work/char-casual.jpg",    title: "Street Casual",    tags: "Stylized" },
+    { img: "assets/work/char-cleric.jpg",    title: "Cleric",           tags: "Stylized" },
   ]},
   { name: "Roblox UGC", items: [
     { img: "assets/work/roblox-golden-stand.png",    title: "Golden Stand",    tags: "Character" },
     { img: "assets/work/roblox-dio.png",             title: "DIO",             tags: "Character" },
     { img: "assets/work/roblox-silver-guardian.png", title: "Silver Guardian", tags: "Character" },
     { img: "assets/work/roblox-eagle.png",           title: "Eagle Warrior",   tags: "UGC Bundle" },
+    { img: "assets/work/roblox-stone-king.png",      title: "Stone King",      tags: "Character" },
+    { img: "assets/work/roblox-silver-sentinel.png", title: "Silver Sentinel", tags: "Character" },
+    { img: "assets/work/roblox-cyber-guardian.png",  title: "Cyber Guardian",  tags: "Character" },
+    { img: "assets/work/roblox-purple-emperor.png",  title: "Purple Emperor",  tags: "Character" },
+    { img: "assets/work/roblox-golden-titan.png",    title: "Golden Titan",    tags: "Character" },
+    { img: "assets/work/roblox-crimson.png",         title: "Crimson Fighter", tags: "Character" },
   ]},
   { name: "Weapons & Items", items: [
     { img: "assets/work/weapon-pack.png", title: "Stylized Weapon Pack", tags: "Game-Ready" },
@@ -42,6 +55,7 @@ const workCats = [
     { img: "assets/work/cyborg-bear.png",  title: "Cyborg Bear",  tags: "Creature" },
     { img: "assets/work/mecha-hounds.png", title: "Mecha Hounds", tags: "Creature · Unity" },
     { img: "assets/work/kuromi.png",       title: "Kuromi",       tags: "Stylized · Fanart" },
+    { img: "assets/work/creature-rat.png", title: "Rat",          tags: "Creature" },
   ]},
 ];
 
