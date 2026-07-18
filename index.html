@@ -25,6 +25,8 @@
     <nav class="nav__links" aria-label="Primary">
       <a href="#work">Work</a>
       <a href="#reel">Turntables</a>
+      <a href="#rigging">Rigging</a>
+      <a href="#unity">Unity</a>
       <a href="#about">About</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
@@ -74,11 +76,34 @@
     <section class="section" id="work">
       <div class="section__head">
         <h2 class="section__title">Selected Work</h2>
-        <p class="section__sub">Click any piece to view larger</p>
+        <p class="section__sub">Organised by category · click any piece to view larger</p>
       </div>
-      <div class="grid" id="work-grid">
-        <!-- Cards are populated from the `works` array in main.js.
-             Drop images in assets/work/ and edit that array. -->
+      <!-- Categorised grids are built from `workCats` in main.js -->
+      <div id="work-cats"></div>
+    </section>
+
+    <!-- ============ RIGGING & ANIMATION ============ -->
+    <section class="section" id="rigging">
+      <div class="section__head">
+        <h2 class="section__title">Rigging &amp; Animation</h2>
+        <p class="section__sub">Rig setup &amp; animation in Blender and live VTuber tracking — click to view with sound</p>
+      </div>
+      <div class="reel-grid">
+        <figure class="reel-card"><video src="assets/video/rig-blender.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Blender Rig &amp; Animation</figcaption></figure>
+        <figure class="reel-card"><video src="assets/video/rig-client.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Character Rig — Client Work</figcaption></figure>
+        <figure class="reel-card"><video src="assets/video/rig-vseeface.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Live VTuber Tracking · VSeeFace</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- ============ UNITY ============ -->
+    <section class="section" id="unity">
+      <div class="section__head">
+        <h2 class="section__title">Unity</h2>
+        <p class="section__sub">VTuber avatars imported &amp; running in the Unity engine — click to view with sound</p>
+      </div>
+      <div class="reel-grid">
+        <figure class="reel-card"><video src="assets/video/rig-unity.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>VTuber in Unity</figcaption></figure>
+        <figure class="reel-card"><video src="assets/video/unity-2.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>VTuber Scene · Unity</figcaption></figure>
       </div>
     </section>
 
