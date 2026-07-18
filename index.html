@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <!-- ============ NAV ============ -->
@@ -85,20 +85,28 @@
         <div class="viewer__stage" id="viewer-stage">
           <div class="viewer__loading" id="viewer-loading">Loading 3D model…</div>
           <div class="viewer__info" id="viewer-info"></div>
+          <div class="viewer__hint">drag = rotate · scroll = zoom · right-drag = pan</div>
         </div>
         <div class="viewer__bar">
-          <div class="viewer__modes" role="group" aria-label="Render mode">
-            <button class="vbtn is-active" type="button" data-mode="shaded">Shaded</button>
-            <button class="vbtn" type="button" data-mode="base">Base Color</button>
-            <button class="vbtn" type="button" data-mode="wire">Wireframe</button>
-            <button class="vbtn" type="button" data-mode="matcap">Matcap</button>
-            <button class="vbtn" type="button" data-mode="normals">Normals</button>
-            <button class="vbtn" type="button" data-mode="uv">UV</button>
+          <div class="viewer__group">
+            <label class="viewer__model">
+              <span>Model</span>
+              <select id="viewer-model" aria-label="Choose model"></select>
+            </label>
+            <div class="viewer__modes" role="group" aria-label="Render mode">
+              <button class="vbtn is-active" type="button" data-mode="shaded">Shaded</button>
+              <button class="vbtn" type="button" data-mode="base">Base Color</button>
+              <button class="vbtn" type="button" data-mode="wire">Wireframe</button>
+              <button class="vbtn" type="button" data-mode="matcap">Matcap</button>
+              <button class="vbtn" type="button" data-mode="normals">Normals</button>
+              <button class="vbtn" type="button" data-mode="uv">UV</button>
+            </div>
           </div>
-          <button class="btn btn--ghost" id="viewer-info-btn" type="button">Model Info: Off</button>
-          <button class="btn btn--ghost" id="viewer-rotate" type="button">Auto-rotate: On</button>
-          <button class="btn btn--ghost" id="viewer-reset" type="button">Reset view</button>
-          <span class="viewer__hint">drag · scroll · right-drag</span>
+          <div class="viewer__group viewer__group--end">
+            <button class="btn btn--ghost" id="viewer-info-btn" type="button">Model Info: Off</button>
+            <button class="btn btn--ghost" id="viewer-rotate" type="button">Auto-rotate: On</button>
+            <button class="btn btn--ghost" id="viewer-reset" type="button">Reset view</button>
+          </div>
         </div>
       </div>
     </section>
@@ -272,7 +280,7 @@
     <img class="lightbox__img" src="" alt="" />
   </div>
 
-  <script src="main.js?v=4"></script>
+  <script src="main.js?v=5"></script>
 
   <!-- 3D Viewer (Three.js via CDN modules) -->
   <script type="importmap">
@@ -283,6 +291,6 @@
     }
   }
   </script>
-  <script type="module" src="viewer.js?v=4"></script>
+  <script type="module" src="viewer.js?v=5"></script>
 </body>
 </html>
