@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Jakkarin Sonchai &mdash; 3D Character Artist</title>
   <meta name="description" content="Portfolio of Jakkarin Sonchai &mdash; 3D Character Artist creating game-ready characters, Roblox UGC, rigging and stylized assets." />
-  <meta name="theme-color" content="#f2eee3" />
+  <meta name="theme-color" content="#110d1c" />
 
   <!-- Open Graph / social preview -->
   <meta property="og:title" content="Jakkarin Sonchai &mdash; 3D Character Artist" />
@@ -16,7 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=13" />
+  <link rel="stylesheet" href="styles.css?v=14" />
+  <link rel="stylesheet" href="fantasy.css?v=14" />
 </head>
 <body>
   <!-- ============ NAV ============ -->
@@ -41,7 +42,7 @@
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="hero__inner">
-        <p class="hero__eyebrow">MANGA EDITION &middot; 3D CHARACTER ARTIST</p>
+        <p class="hero__eyebrow">CHARACTER ART / FANTASY &amp; REAL-TIME</p>
         <h1 class="hero__title">Jakkarin<strong>Sonchai</strong></h1>
         <p class="hero__lead">Game-ready character art with a strong stylized identity &mdash; sculpt, retopology, UV, texturing and rigging for real-time projects, Roblox UGC and production pipelines.</p>
         <div class="hero__cta">
@@ -51,12 +52,12 @@
           <a class="btn btn--ghost" href="https://www.artstation.com/tanxzjakkarin6" target="_blank" rel="noopener">ArtStation &#8599;</a>
         </div>
       </div>
-      <div class="hero__visual" aria-label="Featured 3D character artwork">
-        <div class="hero__soundfx" aria-hidden="true">&#12489;&#12489;&#12489;</div>
-        <div class="hero__badge">THAILAND &middot; AVAILABLE FOR WORK</div>
-        <figure class="manga-panel manga-panel--main"><img src="assets/work/char-scarlet.jpg" alt="Scarlet stylized 3D character artwork" /></figure>
-        <figure class="manga-panel manga-panel--sub"><img src="assets/work/char-seraph.jpg" alt="Nocturne Seraph 3D character artwork" /></figure>
-        <figure class="manga-panel manga-panel--tiny"><img src="assets/work/cyber-valkyrie.jpg" alt="Cyberpunk Valkyrie 3D character artwork" /></figure>
+      <div class="hero__visual" aria-label="DIO featured character artwork">
+        <span class="hero__edition">ARTIST ARCHIVE / VOL. 01</span>
+        <div class="hero__soundfx" aria-hidden="true">ゴゴゴ</div>
+        <a class="dio-cover" href="#dio-feature" aria-label="View DIO character turnaround"><img src="assets/work/dio-turnaround.png" alt="DIO, a gold-haired stylized 3D character with violet skin and a white and gold outfit" fetchpriority="high" width="4096" height="2160" /></a>
+        <div class="hero__caption"><span>FEATURED CHARACTER</span><strong>DIO</strong><a href="#dio-feature">EXPLORE ARTWORK ↗</a></div>
+        <span class="hero__seal" aria-hidden="true">立体<br>造形</span>
       </div>
       <div class="hero__scroll" aria-hidden="true">SCROLL TO CHAPTER 01</div>
     </section>
@@ -67,6 +68,11 @@
         <h2 class="section__title">Selected Work</h2>
         <p class="section__sub">Characters first / then Roblox UGC, creatures and production work. Click any panel to inspect.</p>
       </div>
+      <article class="dio-feature" id="dio-feature">
+        <div class="dio-feature__head"><div><p class="hero__eyebrow">FEATURED / CHARACTER ART</p><h3>DIO <span>— Beyond the ordinary.</span></h3></div><span class="dio-feature__index">01 / CHARACTER STUDY</span></div>
+        <figure class="card dio-feature__art" data-full="assets/work/dio-turnaround.png" data-title="DIO — Character turnaround" tabindex="0" role="button" aria-label="Enlarge DIO character turnaround"><img src="assets/work/dio-turnaround.png" alt="DIO character turnaround showing side, front and back views" loading="lazy" width="4096" height="2160" /></figure>
+        <div class="dio-feature__foot"><span>STYLIZED 3D · CHARACTER TURNAROUND</span><span>VIEW FULL ARTWORK ↗</span></div>
+      </article>
       <!-- Characters grid (rest of the categories render below the Rigging/Unity sections) -->
       <div id="work-cats-top"></div>
     </section>
@@ -295,7 +301,7 @@
   </div>
 
   <script src="main.js?v=10"></script>
-  <script src="manga-motion.js?v=13"></script>
+  <script src="manga-motion.js?v=14"></script>
 
   <!-- 3D Viewer (Three.js via CDN modules) -->
   <script type="importmap">
