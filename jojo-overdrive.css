@@ -1,0 +1,47 @@
+/* JOJO-inspired Overdrive Layer v1 — original presentation effects */
+:root{--jojo-purple:#5f2eea;--jojo-violet:#2b124c;--jojo-gold:#f0bf4c;--jojo-pink:#ed3157;--jojo-cyan:#54e7ff}
+body.jojo-overdrive{background:radial-gradient(circle at 75% 10%,rgba(95,46,234,.10),transparent 24%),var(--paper)}
+.jojo-aura,.jojo-speedlines,.jojo-vignette{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.jojo-aura{z-index:-2;background:radial-gradient(circle at var(--jx,72%) var(--jy,28%),rgba(95,46,234,.18) 0,rgba(237,49,87,.08) 18%,transparent 43%),radial-gradient(circle at 14% 80%,rgba(240,191,76,.12),transparent 30%);transition:background-position .2s linear}
+.jojo-aura::before{content:"";position:absolute;width:70vmax;height:70vmax;left:50%;top:45%;translate:-50% -50%;border:1px solid rgba(95,46,234,.25);border-radius:44% 56% 63% 37%;box-shadow:0 0 80px rgba(95,46,234,.12),inset 0 0 90px rgba(237,49,87,.08);animation:jojoOrbit 18s linear infinite}
+.jojo-aura::after{content:"";position:absolute;inset:8%;background:conic-gradient(from 90deg,transparent 0 9%,rgba(95,46,234,.10) 9% 10%,transparent 10% 24%,rgba(240,191,76,.08) 24% 25%,transparent 25% 48%,rgba(237,49,87,.08) 48% 49%,transparent 49% 100%);filter:blur(1px);animation:jojoOrbit 32s linear reverse infinite}
+@keyframes jojoOrbit{to{rotate:360deg}}
+.jojo-speedlines{z-index:70;opacity:0;background:repeating-conic-gradient(from 0deg at 50% 50%,transparent 0 5deg,rgba(255,255,255,.22) 5.1deg 5.35deg,transparent 5.45deg 11deg);mix-blend-mode:overlay;transition:opacity .18s}
+body.jojo-impact .jojo-speedlines{opacity:.6;animation:speedPunch .38s ease-out}
+@keyframes speedPunch{0%{scale:1.22;rotate:-2deg}100%{scale:1;rotate:0}}
+.jojo-vignette{z-index:69;box-shadow:inset 0 0 160px rgba(21,8,37,.0);transition:box-shadow .2s}
+body.jojo-impact .jojo-vignette{box-shadow:inset 0 0 190px rgba(43,18,76,.42)}
+.hero{isolation:isolate}
+.hero .jojo-hero-stamp{position:absolute;left:clamp(20px,5vw,58px);top:88px;z-index:8;display:flex;gap:7px;align-items:center;font:900 .64rem/1 "Inter",sans-serif;letter-spacing:.22em;text-transform:uppercase;color:var(--violet-deep)}
+.jojo-hero-stamp i{width:24px;height:8px;background:linear-gradient(90deg,var(--red),var(--jojo-purple));clip-path:polygon(0 0,100% 0,72% 100%,0 100%)}
+.hero__title{position:relative}
+.hero__title::before{content:"STAND USER // 3D ARTIST";position:absolute;left:.06em;top:-1.18em;font:900 .105em/1 "Inter",sans-serif;letter-spacing:.22em;color:var(--jojo-purple);text-shadow:none;-webkit-text-stroke:0}
+.hero__visual{filter:drop-shadow(0 18px 34px rgba(43,18,76,.14))}
+.hero__visual .manga-panel{transition:filter .25s,transform .25s}
+.hero__visual:hover .manga-panel--main{filter:contrast(1.08) saturate(1.05) drop-shadow(0 0 16px rgba(95,46,234,.28))}
+.stand-console{position:fixed;left:18px;bottom:18px;z-index:82;width:min(270px,calc(100vw - 36px));padding:12px 14px;background:rgba(242,238,227,.92);border:3px solid var(--ink);box-shadow:7px 7px 0 var(--jojo-purple);backdrop-filter:blur(8px);transform:skew(-2deg)}
+.stand-console__head{display:flex;justify-content:space-between;gap:10px;align-items:end;border-bottom:2px solid var(--ink);padding-bottom:7px;margin-bottom:8px}
+.stand-console__head b{font:400 1.25rem/1 "Bebas Neue",sans-serif;letter-spacing:.08em}.stand-console__head span{font:800 .54rem/1 "Inter",sans-serif;letter-spacing:.14em;color:var(--jojo-purple)}
+.stand-stat{display:grid;grid-template-columns:70px 1fr 18px;gap:7px;align-items:center;margin:5px 0;font-size:.62rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+.stand-stat i{height:6px;background:#d5cec0;border:1px solid var(--ink);overflow:hidden}.stand-stat i::after{content:"";display:block;height:100%;width:var(--stat,80%);background:linear-gradient(90deg,var(--red),var(--jojo-purple),var(--jojo-gold));animation:statCharge 2.8s ease-in-out infinite alternate}
+@keyframes statCharge{to{filter:saturate(1.3);transform:scaleX(.96);transform-origin:left}}
+.jojo-music{position:fixed;right:18px;bottom:18px;z-index:85;display:flex;align-items:center;gap:10px;min-height:52px;padding:9px 12px;background:var(--ink);color:var(--paper);border:3px solid var(--paper);box-shadow:6px 6px 0 var(--jojo-purple);cursor:pointer;transform:skew(-4deg);transition:.18s var(--ease)}
+.jojo-music:hover{translate:-2px -2px;box-shadow:9px 9px 0 var(--red)}.jojo-music b{font:400 1rem/1 "Bebas Neue",sans-serif;letter-spacing:.1em}.jojo-music small{display:block;font:800 .52rem/1.1 "Inter",sans-serif;letter-spacing:.12em;color:var(--jojo-gold);margin-top:3px}
+.jojo-eq{display:flex;align-items:end;gap:2px;width:25px;height:24px}.jojo-eq i{display:block;width:3px;height:25%;background:currentColor;animation:eqBeat .7s ease-in-out infinite alternate;animation-play-state:paused}.jojo-eq i:nth-child(2){animation-duration:.42s}.jojo-eq i:nth-child(3){animation-duration:.58s}.jojo-eq i:nth-child(4){animation-duration:.34s}.jojo-eq i:nth-child(5){animation-duration:.66s}
+.jojo-music.is-playing .jojo-eq i{animation-play-state:running}.jojo-music.is-playing{background:var(--jojo-violet);box-shadow:7px 7px 0 var(--jojo-gold)}
+@keyframes eqBeat{to{height:100%}}
+body.jojo-beat .hero__visual{filter:drop-shadow(0 18px 42px rgba(95,46,234,.32))}.jojo-beat .hero__soundfx{scale:1.035}.jojo-beat .manga-progress span{filter:brightness(1.35)}
+.card::after{content:"";position:absolute;inset:0;pointer-events:none;border:0 solid transparent;transition:.2s}.card:hover::after{border:2px solid rgba(240,191,76,.75);box-shadow:inset 0 0 32px rgba(95,46,234,.12)}
+.section.chapter-live .section__title{filter:drop-shadow(5px 3px 0 rgba(95,46,234,.12))}.section.chapter-live .section__title::before{content:"◆";position:absolute;right:-.52em;top:-.22em;color:var(--jojo-gold);font-size:.32em;text-shadow:2px 2px 0 var(--ink);animation:diamondBlink 1.4s ease-in-out infinite alternate}
+@keyframes diamondBlink{to{translate:0 -5px;rotate:25deg;filter:brightness(1.25)}}
+.jojo-whisper{position:fixed;z-index:68;pointer-events:none;font:900 clamp(2rem,6vw,6rem)/1 "Noto Sans JP",sans-serif;color:rgba(43,18,76,.10);-webkit-text-stroke:1px rgba(95,46,234,.16);animation:whisperOut 1.25s ease-out forwards}
+@keyframes whisperOut{0%{opacity:0;scale:.7;filter:blur(4px)}25%{opacity:1;scale:1}100%{opacity:0;translate:0 -40px;scale:1.08}}
+@media(max-width:860px){.stand-console{left:12px;bottom:12px;width:220px;opacity:.94}.jojo-music{right:12px;bottom:12px}.hero .jojo-hero-stamp{top:82px}.hero__title::before{font-size:.12em}}
+@media(max-width:640px){.stand-console{display:none}.jojo-music{right:10px;bottom:10px;min-height:46px;padding:7px 9px}.jojo-music b{font-size:.88rem}.jojo-music small{font-size:.45rem}.jojo-eq{width:20px;height:20px}.hero .jojo-hero-stamp{left:18px;top:84px;font-size:.52rem}.hero__title::before{top:-1.35em;font-size:.1em}.jojo-aura{opacity:.72}.jojo-speedlines{opacity:0!important}}
+@media(prefers-reduced-motion:reduce){.jojo-aura::before,.jojo-aura::after,.stand-stat i::after,.jojo-eq i,.section.chapter-live .section__title::before{animation:none!important}.jojo-speedlines,.jojo-whisper{display:none!important}}
+@media(max-width:640px){.jojo-music{width:118px;max-width:calc(100vw - 20px);justify-content:center;gap:7px;right:10px;transform:none;overflow:hidden}.jojo-music small{display:none}.jojo-music b{font-size:.82rem;white-space:nowrap}.hero__inner{width:100%;max-width:calc(100vw - 36px)!important}.hero__lead{width:100%!important;max-width:100%!important;font-size:.94rem;line-height:1.42;padding-right:2px;overflow-wrap:anywhere}.hero__title{max-width:100%;font-size:clamp(3.6rem,20vw,6rem)}}
+/* Integration with latest dark fantasy/rift layer */
+.jojo-hero-stamp{color:#d9c6ff!important;text-shadow:0 1px 10px rgba(95,46,234,.45)}
+.stand-console{background:rgba(18,10,31,.94);color:#f4eafb;border-color:#c9addd;box-shadow:7px 7px 0 var(--jojo-purple)}.stand-console__head{border-color:#c9addd}.stand-console__head span{color:#c9a8ff}.stand-stat i{background:#352743;border-color:#c9addd}.stand-stat i::after{background:linear-gradient(90deg,var(--jojo-pink),var(--jojo-purple),var(--jojo-gold))}
+.jojo-music{bottom:68px;background:#120b1f;color:#f4eafb;border-color:#d7c4e8;box-shadow:6px 6px 0 var(--jojo-purple)}.jojo-music:hover{background:#24103d}.jojo-music.is-playing{background:#2b124c;color:#fff}
+@media(max-width:640px){.jojo-music{bottom:62px;right:10px}}
