@@ -173,3 +173,128 @@
   addEventListener('resize', revealVisible, { passive: true });
   requestAnimationFrame(revealVisible);
 })();
+
+/* Shattered Dimension controller v13 */
+(() => {
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+  const world = document.createElement('div');
+  world.className = 'dimension-world';
+  world.setAttribute('aria-hidden', 'true');
+  world.innerHTML = `
+    <svg class="dimension-cracks" viewBox="0 0 1440 900" preserveAspectRatio="none">
+      <path pathLength="1" class="c1" d="M1370 -20 L1260 92 L1288 156 L1190 244 L1218 322 L1090 425 L1130 514 L1010 618 L1048 705 L920 920"/>
+      <path pathLength="1" class="c1" d="M80 920 L176 806 L146 738 L252 626 L224 554 L345 448 L314 370 L438 252 L409 178 L515 -20"/>
+      <path pathLength="1" class="c2" d="M1260 92 L1170 72 L1122 18 M1190 244 L1098 211 L1032 232 M1090 425 L1010 388 L962 340 M1130 514 L1205 548 L1268 532"/>
+      <path pathLength="1" class="c2" d="M176 806 L250 828 L314 806 M252 626 L334 650 L390 620 M345 448 L418 416 L472 438 M438 252 L520 278 L576 244"/>
+      <path pathLength="1" class="c3" d="M720 -20 L690 104 L742 188 L704 286 L762 372 L716 468 L778 568 L730 676 L790 920"/>
+    </svg>`;
+  document.body.prepend(world);
+  const glyphs = ['バキッ', 'メキッ', 'ズズズ', 'ドォン'];
+  const riftMarkup = `
+    <svg viewBox="0 0 300 300" aria-hidden="true">
+      <path pathLength="1" class="r-main" d="M150 150 L140 120 L128 105 L135 82 L112 61 L120 36 M150 150 L168 132 L180 108 L204 101 L218 78 L250 65 M150 150 L135 169 L110 179 L97 205 L65 220 M150 150 L171 170 L192 184 L202 216 L230 239"/>
+      <path pathLength="1" class="r-violet" d="M140 120 L116 112 L100 93 M135 82 L154 65 L160 42 M180 108 L174 83 L190 62 M204 101 L231 111 L252 102 M110 179 L82 171 L59 184 M97 205 L113 232 L106 256 M192 184 L220 173 L244 183 M202 216 L184 240 L190 266"/>
+      <path pathLength="1" class="r-red" d="M150 150 L157 112 L150 90 M150 150 L121 145 L98 132 M150 150 L163 193 L154 219"/>
+      <path pathLength="1" class="r-gold" d="M150 150 L192 145 L224 132 M150 150 L126 191 L124 231"/>
+    </svg>`;
+
+  function burstRift(x, y, scale = 1, glyph = '') {
+    if (scale > .65) {
+      document.body.classList.remove('dimension-shock');
+      void document.body.offsetWidth;
+      document.body.classList.add('dimension-shock');
+      setTimeout(() => document.body.classList.remove('dimension-shock'), 430);
+    }
+    const rift = document.createElement('div');
+    rift.className = 'dimension-break';
+    rift.style.setProperty('--rift-x', `${x}px`);
+    rift.style.setProperty('--rift-y', `${y}px`);
+    rift.style.setProperty('--rift-scale', scale);
+    rift.innerHTML = riftMarkup;
+    const shardCount = innerWidth < 640 ? 6 : 11;
+    for (let i = 0; i < shardCount; i++) {
+      const shard = document.createElement('i');
+      shard.className = 'dimension-shard';
+      const angle = (Math.PI * 2 * i / shardCount) + (Math.random() - .5) * .45;
+      const dist = 70 + Math.random() * 105;
+      shard.style.setProperty('--sx', `${Math.cos(angle) * dist}px`);
+      shard.style.setProperty('--sy', `${Math.sin(angle) * dist}px`);
+      shard.style.setProperty('--spin', `${(Math.random() * 260 - 130).toFixed(0)}deg`);
+      shard.style.setProperty('--sr', `${(Math.random() * 100 - 50).toFixed(0)}deg`);
+      shard.style.setProperty('--sw', `${10 + Math.random() * 18}px`);
+      shard.style.setProperty('--sh', `${20 + Math.random() * 34}px`);
+      shard.style.setProperty('--sd', `${Math.random() * 90}ms`);
+      rift.appendChild(shard);
+    }
+    const fx = document.createElement('b');
+    fx.className = 'dimension-glyph';
+    fx.textContent = glyph || glyphs[Math.floor(Math.random() * glyphs.length)];
+    rift.appendChild(fx);
+    const flash = document.createElement('i');
+    flash.className = 'dimension-flash';
+    flash.style.setProperty('--fx', `${x}px`);
+    flash.style.setProperty('--fy', `${y}px`);
+    document.body.append(flash, rift);
+    setTimeout(() => flash.remove(), 520);
+    setTimeout(() => rift.remove(), 1700);
+  }
+
+  window.__burstRift = burstRift;
+  const triggered = new WeakSet();
+  const sectionObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting || triggered.has(entry.target)) return;
+      triggered.add(entry.target);
+      const y = innerHeight * (.28 + Math.random() * .38);
+      const x = innerWidth * (innerWidth < 700 ? .78 : .84);
+      setTimeout(() => burstRift(x, y, innerWidth < 700 ? .7 : .95), 120);
+    });
+  }, { threshold: .28, rootMargin: '-8% 0px -20% 0px' });
+  // Chapter bursts are synchronized below with the existing chapter-live state.
+  let worldTicking = false;
+  addEventListener('scroll', () => {
+    if (worldTicking) return;
+    worldTicking = true;
+    requestAnimationFrame(() => {
+      world.style.transform = `translate3d(0,${(-scrollY * .018).toFixed(1)}px,0)`;
+      worldTicking = false;
+    });
+  }, { passive: true });
+
+  document.addEventListener('click', e => {
+    const hit = e.target.closest('.btn,.vbtn,.charbtn,.social a');
+    if (!hit) return;
+    burstRift(e.clientX, e.clientY, innerWidth < 700 ? .42 : .52, 'メキッ');
+  });
+
+  addEventListener('load', () => {
+    setTimeout(() => burstRift(innerWidth * .74, innerHeight * .38, innerWidth < 700 ? .62 : .88, 'バキッ'), 1550);
+  }, { once: true });
+})();
+
+/* Sync dimension breaks to the active manga chapter. */
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || typeof window.__burstRift !== 'function') return;
+  const lastBurst = new WeakMap();
+  const fireFor = section => {
+    const now = performance.now();
+    if (now - (lastBurst.get(section) || 0) < 2400) return;
+    lastBurst.set(section, now);
+    const head = section.querySelector('.section__head') || section;
+    const rect = head.getBoundingClientRect();
+    const y = Math.max(155, Math.min(innerHeight - 155, rect.top + Math.min(rect.height * .72, 220)));
+    const x = innerWidth * (innerWidth < 700 ? .78 : .84);
+    window.__burstRift(x, y, innerWidth < 700 ? .68 : .92);
+  };
+  const chapterMutation = new MutationObserver(records => {
+    records.forEach(record => {
+      const section = record.target;
+      if (section.classList.contains('chapter-live')) fireFor(section);
+    });
+  });
+  document.querySelectorAll('.section').forEach(section => {
+    chapterMutation.observe(section, { attributes: true, attributeFilter: ['class'] });
+    if (section.classList.contains('chapter-live')) fireFor(section);
+  });
+})();
