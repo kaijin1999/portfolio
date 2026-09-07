@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jakkarin Sonchai — 3D Artist</title>
-  <meta name="description" content="Portfolio of Jakkarin Sonchai, 3D Artist — character art, weapons/props and rigging. Available for work." />
-  <meta name="theme-color" content="#0a0a0b" />
+  <title>Jakkarin Sonchai &mdash; 3D Character Artist</title>
+  <meta name="description" content="Portfolio of Jakkarin Sonchai &mdash; 3D Character Artist creating game-ready characters, Roblox UGC, rigging and stylized assets." />
+  <meta name="theme-color" content="#f2eee3" />
 
   <!-- Open Graph / social preview -->
-  <meta property="og:title" content="Jakkarin Sonchai — 3D Artist" />
-  <meta property="og:description" content="3D Artist portfolio — stylized characters, weapons and rigging." />
+  <meta property="og:title" content="Jakkarin Sonchai &mdash; 3D Character Artist" />
+  <meta property="og:description" content="Manga-inspired 3D Artist portfolio &mdash; game-ready characters, Roblox UGC, rigging and stylized assets." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/work/01.jpg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=10" />
 </head>
 <body>
   <!-- ============ NAV ============ -->
@@ -41,37 +41,41 @@
     <!-- ============ HERO ============ -->
     <section class="hero">
       <div class="hero__inner">
-        <p class="hero__eyebrow">3D&nbsp;Artist · Character &amp; Rigging</p>
-        <h1 class="hero__title">Jakkarin<br />Sonchai</h1>
-        <p class="hero__lead">
-          I craft high-quality 3D characters, weapons and props — from sculpt and
-          retopology to texturing and rigging. Based in Thailand and open to new
-          opportunities.
-        </p>
+        <p class="hero__eyebrow">MANGA EDITION &middot; 3D CHARACTER ARTIST</p>
+        <h1 class="hero__title">Jakkarin<strong>Sonchai</strong></h1>
+        <p class="hero__lead">Game-ready character art with a strong stylized identity &mdash; sculpt, retopology, UV, texturing and rigging for real-time projects, Roblox UGC and production pipelines.</p>
         <div class="hero__cta">
-          <a class="btn btn--solid" href="#work">View Work</a>
-          <a class="btn btn--ghost" href="assets/CV.pdf" target="_blank" rel="noopener">Download CV</a>
-          <a class="btn btn--ghost" href="https://www.artstation.com/tanxzjakkarin6" target="_blank" rel="noopener">ArtStation&nbsp;↗</a>
+          <a class="btn btn--solid" href="#work">Enter Portfolio</a>
+          <a class="btn btn--ghost" href="#viewer">Inspect 3D</a>
+          <a class="btn btn--ghost" href="assets/CV.pdf" target="_blank" rel="noopener">CV / PDF</a>
+          <a class="btn btn--ghost" href="https://www.artstation.com/tanxzjakkarin6" target="_blank" rel="noopener">ArtStation &#8599;</a>
         </div>
       </div>
-      <div class="hero__scroll" aria-hidden="true">scroll</div>
+      <div class="hero__visual" aria-label="Featured 3D character artwork">
+        <div class="hero__soundfx" aria-hidden="true">&#12489;&#12489;&#12489;</div>
+        <div class="hero__badge">THAILAND &middot; AVAILABLE FOR WORK</div>
+        <figure class="manga-panel manga-panel--main"><img src="assets/work/char-scarlet.jpg" alt="Scarlet stylized 3D character artwork" /></figure>
+        <figure class="manga-panel manga-panel--sub"><img src="assets/work/char-seraph.jpg" alt="Nocturne Seraph 3D character artwork" /></figure>
+        <figure class="manga-panel manga-panel--tiny"><img src="assets/work/cyber-valkyrie.jpg" alt="Cyberpunk Valkyrie 3D character artwork" /></figure>
+      </div>
+      <div class="hero__scroll" aria-hidden="true">SCROLL TO CHAPTER 01</div>
     </section>
 
     <!-- ============ WORK ============ -->
     <section class="section" id="work">
-      <div class="section__head">
+      <div class="section__head" data-chapter="CHAPTER 01 &middot; FEATURED ART">
         <h2 class="section__title">Selected Work</h2>
-        <p class="section__sub">Organised by category · click any piece to view larger</p>
+        <p class="section__sub">Characters first / then Roblox UGC, creatures and production work. Click any panel to inspect.</p>
       </div>
       <!-- Characters grid (rest of the categories render below the Rigging/Unity sections) -->
       <div id="work-cats-top"></div>
     </section>
 
     <!-- ============ TURNTABLES ============ -->
-    <section class="section" id="reel">
-      <div class="section__head">
+    <section class="section section--ink" id="reel">
+      <div class="section__head" data-chapter="CHAPTER 02 &middot; MOTION">
         <h2 class="section__title">Character Turntables</h2>
-        <p class="section__sub">360° real-time turntables — click to view with sound</p>
+        <p class="section__sub">360-degree character presentation / motion panels from finished real-time work.</p>
       </div>
       <div class="reel-grid">
         <figure class="reel-card"><video src="assets/video/naihe.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Naihe</figcaption></figure>
@@ -87,9 +91,9 @@
 
     <!-- ============ 3D VIEWER ============ -->
     <section class="section" id="viewer">
-      <div class="section__head">
+      <div class="section__head" data-chapter="CHAPTER 03 &middot; INSPECT THE MODEL">
         <h2 class="section__title">3D Viewer</h2>
-        <p class="section__sub">Inspect real 3D models — switch models, render modes (base color, wireframe, matcap, normals, UV) and view stats</p>
+        <p class="section__sub">Inspect the actual asset / shaded, base color, wireframe, matcap, normals, UV and live model stats.</p>
       </div>
       <div class="viewer">
         <div class="viewer__stage" id="viewer-stage">
@@ -119,10 +123,10 @@
     </section>
 
     <!-- ============ RIGGING & ANIMATION ============ -->
-    <section class="section" id="rigging">
-      <div class="section__head">
+    <section class="section section--ink" id="rigging">
+      <div class="section__head" data-chapter="CHAPTER 04 &middot; RIG / ANIMATION">
         <h2 class="section__title">Rigging &amp; Animation</h2>
-        <p class="section__sub">Rig setup &amp; animation in Blender and live VTuber tracking — click to view with sound</p>
+        <p class="section__sub">Production rigging, animation and VTuber systems / built to move, deform and ship.</p>
       </div>
       <div class="reel-grid">
         <figure class="card" data-full="assets/work/rig-character.png" data-title="Character Rig"><img class="card__img" src="assets/work/rig-character.png" alt="Character Rig" loading="lazy" /><figcaption class="card__overlay"><div class="card__title">Character Rig</div><div class="card__tags">Blender · Rig</div></figcaption></figure>
@@ -146,9 +150,9 @@
 
     <!-- ============ UNITY ============ -->
     <section class="section" id="unity">
-      <div class="section__head">
+      <div class="section__head" data-chapter="CHAPTER 05 &middot; REAL-TIME ENGINE">
         <h2 class="section__title">Unity</h2>
-        <p class="section__sub">VTuber avatars imported &amp; running in the Unity engine — click to view with sound</p>
+        <p class="section__sub">Real-time avatar integration and animation tests inside Unity.</p>
       </div>
       <div class="reel-grid">
         <figure class="reel-card"><video src="assets/video/unity-3.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Avatar Animation · Unity</figcaption></figure>
@@ -162,6 +166,10 @@
 
     <!-- ============ WORK (remaining categories) ============ -->
     <section class="section" id="work-more">
+      <div class="section__head" data-chapter="CHAPTER 06 &middot; MORE WORK">
+        <h2 class="section__title">UGC / Creatures / Props</h2>
+        <p class="section__sub">Production-ready assets across Roblox, creatures, weapons and client-focused work.</p>
+      </div>
       <div id="work-cats-rest"></div>
     </section>
 
@@ -173,7 +181,8 @@
                onerror="this.style.opacity=0" />
         </div>
         <div class="about__text">
-          <h2 class="section__title">About</h2>
+          <p class="hero__eyebrow">CHAPTER 07 &middot; PROFILE</p>
+          <h2 class="section__title">About the Artist</h2>
           <p>
             I'm Jakkarin Sonchai (จักริน ศรชัย), a 3D artist based in Ubon Ratchathani,
             Thailand, with a B.Sc. in Information Technology from Ubon Ratchathani University.
@@ -206,7 +215,7 @@
 
     <!-- ============ EXPERIENCE & EDUCATION ============ -->
     <section class="section section--resume" id="experience">
-      <div class="section__head">
+      <div class="section__head" data-chapter="CHAPTER 08 &middot; CAREER">
         <h2 class="section__title">Experience &amp; Education</h2>
         <p class="section__sub">Where I've built and learned</p>
       </div>
@@ -256,6 +265,7 @@
     <!-- ============ CONTACT ============ -->
     <section class="section section--contact" id="contact">
       <div class="contact">
+        <p class="hero__eyebrow">CHAPTER 09 &middot; CONTACT</p>
         <h2 class="section__title">Let's work together</h2>
         <p class="contact__lead">Available for freelance &amp; full-time 3D roles.</p>
         <a class="contact__email" href="mailto:astter2542@gmail.com">astter2542@gmail.com</a>
@@ -284,7 +294,7 @@
     <img class="lightbox__img" src="" alt="" />
   </div>
 
-  <script src="main.js?v=8"></script>
+  <script src="main.js?v=10"></script>
 
   <!-- 3D Viewer (Three.js via CDN modules) -->
   <script type="importmap">
@@ -295,6 +305,6 @@
     }
   }
   </script>
-  <script type="module" src="viewer.js?v=8"></script>
+  <script type="module" src="viewer.js?v=10"></script>
 </body>
 </html>
