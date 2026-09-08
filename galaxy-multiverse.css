@@ -26,3 +26,23 @@
 @media(max-width:900px){.universe-chip{top:112px}.cosmic-coord,.galaxy-route{display:none}.section__head::after{display:none}.multiverse-portal{inset:-3% -4% -2%}}
 @media(max-width:640px){.cosmos-haze{opacity:.72}.multiverse-portal{opacity:.66;animation-duration:26s}.universe-chip{top:112px;right:14px;font-size:.48rem;padding:6px 8px}.section::before{opacity:.5}.card .card__overlay::before{display:none}}
 @media(prefers-reduced-motion:reduce){.cosmos-haze,.cosmos-haze::before,.cosmos-haze::after,.multiverse-portal,.multiverse-portal::after,.universe-chip i{animation:none!important}}
+
+/* ===== v2 / Anime Spiral Galaxy ===== */
+:root{--space:#03070c;--nebula-a:#3d8dff;--nebula-b:#ff8a5c;--nebula-c:#74e8ff;--starlight:#f7fbff}
+.cosmos-canvas{background:#03070c}
+.cosmos-haze{background:radial-gradient(ellipse at 66% 43%,rgba(70,145,255,.11),transparent 24%),radial-gradient(ellipse at 72% 48%,rgba(255,142,91,.055),transparent 18%),radial-gradient(ellipse at 30% 80%,rgba(51,118,190,.05),transparent 28%);filter:blur(18px);opacity:.72;animation:animeCosmosBreath 9s ease-in-out infinite alternate}
+@keyframes animeCosmosBreath{to{opacity:.9;filter:blur(23px) saturate(1.08)}}
+.cosmos-haze::before{width:69vmax;height:39vmax;right:-12vmax;top:19vh;border-color:rgba(157,217,255,.11);box-shadow:0 0 95px rgba(59,145,255,.09),inset 0 0 70px rgba(255,255,255,.025);transform:rotate(-14deg)}
+.cosmos-haze::after{width:50vmax;height:28vmax;left:-17vmax;bottom:6vh;border-color:rgba(255,174,112,.07);box-shadow:0 0 80px rgba(80,169,255,.05);transform:rotate(22deg)}
+.multiverse-portal{inset:-13% -15% -10%;border-radius:50%;background:repeating-conic-gradient(from 8deg,transparent 0 10deg,rgba(197,234,255,.42) 10.2deg 10.55deg,transparent 10.8deg 19deg,rgba(255,169,109,.27) 19.2deg 19.45deg,transparent 19.8deg 31deg);filter:drop-shadow(0 0 10px rgba(117,203,255,.32));opacity:.68;animation-duration:34s}
+.multiverse-portal::before{inset:11%;border-color:rgba(203,235,255,.42);box-shadow:0 0 38px rgba(97,181,255,.18),inset 0 0 24px rgba(255,255,255,.04);border-radius:50% 48% 51% 49%}
+.multiverse-portal::after{inset:19%;border-color:rgba(255,180,121,.2);box-shadow:0 0 20px rgba(255,154,91,.09);animation-duration:5.4s}
+.universe-chip{border-color:rgba(125,213,255,.62);background:rgba(2,8,15,.76);color:#eaf8ff;box-shadow:4px 4px 0 rgba(65,145,255,.35)}
+.universe-chip i{background:#bff3ff;box-shadow:0 0 13px #8cdeff,0 0 24px rgba(255,255,255,.4)}
+.section::before{background:radial-gradient(ellipse at 68% 48%,rgba(63,143,224,.055),transparent 32%),linear-gradient(180deg,rgba(2,7,13,.06),rgba(2,7,13,.18))}
+.section:nth-of-type(3n)::before{background:radial-gradient(ellipse at 28% 42%,rgba(255,151,94,.035),transparent 25%),radial-gradient(ellipse at 72% 52%,rgba(67,155,238,.05),transparent 30%)}
+.section__head::after{color:rgba(160,225,255,.75)}
+.galaxy-route i.is-hot{background:linear-gradient(#d9f6ff,#62bfff,#ffad74);box-shadow:0 0 11px rgba(94,188,255,.55)}
+@media(max-width:640px){.cosmos-haze{opacity:.5}.multiverse-portal{opacity:.48;inset:-1% -4% -2%}.universe-chip{background:rgba(2,8,15,.88)}}
+.hero__lead{position:relative;text-shadow:0 2px 8px rgba(2,6,11,.98),0 0 18px rgba(2,6,11,.78)}
+.hero__eyebrow,.hero__title{filter:drop-shadow(0 3px 9px rgba(2,6,11,.42))}
