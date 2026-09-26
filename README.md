@@ -1,23 +1,24 @@
-# 3D Artist Portfolio
+# The Neon Museum — Jakkarin Sonchai
 
-A minimal, dark, responsive portfolio site for a 3D artist — built as plain
-HTML/CSS/JS (no build step) and deployed on **GitHub Pages**.
+A cyberpunk 3D portfolio museum, published with GitHub Pages at https://kaijin1999.github.io/portfolio/.
 
-## Add your content
-1. **Images** — export from Canva as PNG/JPG and drop them in `assets/work/`
-   (e.g. `01.jpg`, `02.jpg`, …). Add a `portrait.jpg` for the About section.
-2. **Showreel** — put your MP4 at `assets/video/showreel.mp4`.
-3. **CV** — put your PDF at `assets/CV.pdf`.
-4. **Projects** — edit the `works` array in `main.js` (title, tags, image).
-5. **Text** — replace `[YOUR NAME]`, the About paragraphs, and the social links
-   (ArtStation / LinkedIn / Instagram) in `index.html`.
+## Experience
 
-## Run locally
-Just open `index.html` in a browser, or serve the folder:
-```
-npx serve .
-```
+- Walk with WASD or arrow keys after selecting the 3D room. Drag to look; touch devices also have direction buttons.
+- Six exhibition wings, with six framed works per wall set and previous/next controls.
+- A real Valkyrie glTF sculpture opens the two-model inspector (Valkyrie and Kaijin).
+- All 100 original exhibits: 27 characters, 11 creatures, 15 Roblox UGC items, 5 props/weapons, 36 rigging/motion exhibits and 6 Unity projects.
+- Category filters, original full-resolution artwork, controlled video playback, artist profile and CV links.
+- The collection remains usable when WebGL or the Three.js CDN is unavailable. JavaScript-disabled visitors get ArtStation and CV links.
 
-## Deploy
-Pushed to GitHub and served via GitHub Pages from the `main` branch root.
-`.nojekyll` is included so all asset files are served as-is.
+## Editing
+
+`collection.js` is the source of truth for categories, titles, source files and media types. Original media live in `assets/`. `assets/thumbs/` contains optimized image previews and actual video frames. Image previews use the original filename with `.jpg`; video previews use `video-<original-name>.jpg`.
+
+`museum.js` handles the collection and dialogs; `room.js` handles the Three.js environment, walking, artwork selection and GPU cleanup; `museum.css` styles the interface. `viewer.js` retains the original model inspection modes. Legacy theme files remain in the repository but are no longer loaded.
+
+Serve the repository with any local static HTTP server (for example `npx serve .`). No build step is required. GitHub Pages publishes the root of `main`. `.nojekyll` is retained. Three.js is pinned to 0.160.0 via the import map; fonts are loaded from Google Fonts.
+
+## Validation
+
+Desktop and mobile browser checks cover category counts, wall pagination, selecting framed artwork in 3D, WASD walking, drag camera, full-size images, artwork navigation, video playback/cleanup, both models, six render modes, artist profile, and fallback with the 3D CDN blocked. All 200 original/thumbnail references exist. Responsive layouts checked at 320, 390, 768, 1024 and 1440 pixels.

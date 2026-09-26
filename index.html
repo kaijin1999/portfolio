@@ -1,368 +1,413 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jakkarin Sonchai &mdash; Anime Fantasy 3D Artist</title>
-  <meta name="description" content="Portfolio of Jakkarin Sonchai &mdash; anime fantasy 3D characters, creatures, real-time game assets, Roblox UGC, rigging and animation." />
-  <meta name="theme-color" content="#0b0912" />
-  <link rel="canonical" href="https://kaijin1999.github.io/portfolio/" />
-
-  <!-- Open Graph / social preview -->
-  <meta property="og:title" content="Jakkarin Sonchai &mdash; Anime Fantasy 3D Artist" />
-  <meta property="og:description" content="Anime fantasy 3D character and creature art &mdash; modeling, hand-painted texturing, rigging, animation and real-time game assets." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/work/crimson-dragon-flight.webp" />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,600&family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+JP:wght@700;900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=14" />
-  <link rel="stylesheet" href="fantasy.css?v=14" />
-  <link rel="stylesheet" href="rift.css?v=15" />
-  <link rel="stylesheet" href="jojo-overdrive.css?v=1" />
-  <link rel="stylesheet" href="genz-editorial.css?v=1" />
-  <link rel="stylesheet" href="galaxy-multiverse.css?v=2" />
-  <link rel="stylesheet" href="anime-medieval-fantasy.css?v=1" />
-</head>
-<body class="anime-medieval">
-  <!-- ============ NAV ============ -->
-  <header class="nav" id="top">
-    <a href="#top" class="nav__brand">Jakkarin&nbsp;Sonchai</a>
-    <nav class="nav__links" aria-label="Primary">
-      <a href="#work">Work</a>
-      <a href="#fantasy">Fantasy</a>
-      <a href="#viewer">3D</a>
-      <a href="#reel">Turntables</a>
-      <a href="#rigging">Rigging</a>
-      <a href="#unity">Unity</a>
-      <a href="#about">About</a>
-      <a href="#experience">Experience</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button class="nav__toggle" aria-label="Menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
-
-  <main>
-    <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="hero__inner">
-        <p class="hero__eyebrow">ANIME FANTASY / CREATURE &amp; CHARACTER ART</p>
-        <h1 class="hero__title">Jakkarin<strong>Sonchai</strong></h1>
-        <p class="hero__lead">Forging stylized characters and creatures for fantasy worlds &mdash; sculpt, retopology, UV, hand-painted texturing, rigging and animation for real-time games and Roblox.</p>
-        <div class="hero__cta">
-          <a class="btn btn--solid" href="#work">Enter Portfolio</a>
-          <a class="btn btn--ghost" href="#viewer">Inspect 3D</a>
-          <a class="btn btn--ghost" href="assets/CV.pdf" target="_blank" rel="noopener">CV / PDF</a>
-          <a class="btn btn--ghost" href="https://www.artstation.com/tanxzjakkarin6" target="_blank" rel="noopener">ArtStation &#8599;</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Jakkarin Sonchai — The Neon Museum</title>
+    <meta
+      name="description"
+      content="Step inside Jakkarin Sonchai's 3D art museum. Explore characters, creatures, Roblox UGC, props, rigging, animation and Unity projects."
+    />
+    <meta name="theme-color" content="#090e13" />
+    <link rel="canonical" href="https://kaijin1999.github.io/portfolio/" />
+    <meta property="og:title" content="Jakkarin Sonchai — The Neon Museum" />
+    <meta
+      property="og:description"
+      content="A cyberpunk gallery of characters, creatures and real-time 3D art."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="assets/work/crimson-dragon-flight.webp"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23090e13'/%3E%3Cpath d='M10 8v24m20-24L12 20l18 12' fill='none' stroke='%23b5ffd2' stroke-width='4'/%3E%3C/svg%3E"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="museum.css?v=1" />
+  </head>
+  <body>
+    <a class="skip" href="#collection">Skip to artwork collection</a>
+    <header class="masthead">
+      <a class="brand" href="#" aria-label="Museum home"
+        ><span class="brand-mark">K<span>↗</span></span
+        ><span
+          >JAKKARIN SONCHAI<small>3D ARTIST / DIGITAL COLLECTION</small></span
+        ></a
+      >
+      <nav aria-label="Main navigation">
+        <button class="nav-button active" id="nav-museum">The museum</button
+        ><a href="#collection">Collection <span class="total-count"></span></a
+        ><button class="nav-button" id="about-button">About the artist</button>
+      </nav>
+      <a class="contact-link" href="mailto:astter2542@gmail.com"
+        >LET’S TALK <span>↗</span></a
+      >
+    </header>
+    <main>
+      <section class="museum" aria-label="Interactive 3D art museum">
+        <div
+          id="room"
+          tabindex="0"
+          aria-label="3D gallery. Drag to look. Use W A S D or arrow keys to walk. Select a framed work to inspect it."
+        ></div>
+        <div class="room-shade"></div>
+        <div class="museum-title">
+          <p class="eyebrow">
+            <span></span> THE PERMANENT COLLECTION / VOL. 01
+          </p>
+          <h1>ART BEYOND<br />THE <em>SCREEN.</em></h1>
+          <p class="intro">
+            A personal museum of imagined worlds.<br />Characters, creatures &
+            everything in between.
+          </p>
+        </div>
+        <div class="room-tag">
+          <span>VIRTUAL EXHIBITION</span><b>CYBERPUNK<br />GALLERY</b
+          ><span>UBON RATCHATHANI, TH</span>
+        </div>
+        <aside class="wing-menu" aria-label="Exhibition rooms">
+          <p class="eyebrow">EXPLORE THE WINGS</p>
+          <div id="room-nav"></div>
+        </aside>
+        <div class="exhibit-caption">
+          <span class="eyebrow">ON THE CENTRAL PLINTH</span
+          ><button id="inspect-model">
+            <strong>VALKYRIE</strong><span>Interactive 3D sculpture ↗</span>
+          </button>
+        </div>
+        <div class="gallery-status" id="gallery-status" role="status">
+          Preparing your visit…
+        </div>
+        <div class="museum-bottom">
+          <div class="location">
+            <span class="location-cross">⌖</span>
+            <div>
+              <small>YOU ARE IN</small
+              ><strong id="current-room">01 / CHARACTER HALL</strong>
+            </div>
+          </div>
+          <div class="walk-hint">
+            <span>DRAG</span> to look <i>·</i> <span>W A S D</span> to walk
+            <i>·</i> click art to inspect
+          </div>
+          <div class="room-actions">
+            <button id="prev-wall" aria-label="Previous artworks">←</button
+            ><span id="wall-page">01 / 01</span
+            ><button id="next-wall" aria-label="Next artworks">→</button
+            ><button
+              id="reset-room"
+              title="Return to the entrance"
+              aria-label="Reset gallery view"
+            >
+              ⌂
+            </button>
+          </div>
+        </div>
+        <div class="touch-walk" aria-label="Walk controls">
+          <button data-walk="forward" aria-label="Walk forward">↑</button>
+          <div>
+            <button data-walk="left" aria-label="Walk left">←</button
+            ><button data-walk="back" aria-label="Walk backward">↓</button
+            ><button data-walk="right" aria-label="Walk right">→</button>
+          </div>
+        </div>
+      </section>
+      <section class="collection" id="collection">
+        <div class="collection-heading">
+          <div>
+            <p class="eyebrow">THE ARCHIVE / ALL EXHIBITS</p>
+            <h2>THE COLLECTION<span>.</span></h2>
+          </div>
+          <p>Every piece has a story.<br />Take a closer look.</p>
+        </div>
+        <div class="collection-toolbar">
+          <div
+            id="filters"
+            role="group"
+            aria-label="Filter artworks by category"
+          ></div>
+          <span id="result-count" aria-live="polite"></span>
+        </div>
+        <div id="art-grid" class="art-grid"></div>
+      </section>
+      <section class="contact-strip">
+        <p class="eyebrow">FROM A NEW IDEA TO A NEW WORLD</p>
+        <h2>
+          LET’S BUILD SOMETHING<br /><a href="mailto:astter2542@gmail.com"
+            >EXTRAORDINARY. ↗</a
+          >
+        </h2>
+        <div>
+          <span>Available for freelance & full-time 3D roles.</span
+          ><a
+            href="https://www.artstation.com/tanxzjakkarin6"
+            target="_blank"
+            rel="noopener"
+            >ArtStation ↗</a
+          ><a href="assets/CV.pdf" target="_blank" rel="noopener"
+            >Download CV ↗</a
+          >
+        </div>
+      </section>
+    </main>
+    <footer>
+      © <span id="year"></span> Jakkarin Sonchai
+      <span>CRAFTED IN THAILAND / EXPLORED EVERYWHERE</span
+      ><a href="#">Back to entrance ↑</a>
+    </footer>
+    <dialog id="art-dialog" aria-labelledby="art-title">
+      <div class="dialog-top">
+        <span id="art-category" class="eyebrow"></span
+        ><button class="close-dialog" aria-label="Close artwork">✕</button>
+      </div>
+      <div id="art-media"></div>
+      <div class="art-meta">
+        <div>
+          <h2 id="art-title"></h2>
+          <p id="art-tags"></p>
+        </div>
+        <div class="detail-nav">
+          <button id="prev-art" aria-label="Previous artwork">←</button
+          ><span id="art-position"></span
+          ><button id="next-art" aria-label="Next artwork">→</button>
         </div>
       </div>
-      <div class="hero__visual hero__visual--dragon" aria-label="Crimson Dragon featured creature artwork">
-        <span class="hero__edition">FANTASY BESTIARY / VOL. I</span>
-        <div class="hero__soundfx" aria-hidden="true">幻想</div>
-        <a class="dio-cover" href="#fantasy" aria-label="View Crimson Dragon creature study"><img src="assets/work/crimson-dragon-flight.webp" alt="Crimson fantasy dragon creature model with wide wings" fetchpriority="high" width="4096" height="2160" /></a>
-        <div class="hero__caption"><span>FEATURED CREATURE</span><strong>CRIMSON WYVERN</strong><a href="#fantasy">ENTER BESTIARY ↗</a></div>
-        <span class="hero__seal" aria-hidden="true">竜<br>幻想</span>
-      </div>
-      <div class="hero__scroll" aria-hidden="true">SCROLL TO CHAPTER 01</div>
-    </section>
-
-    <!-- ============ WORK ============ -->
-    <section class="section" id="work">
-      <div class="section__head" data-chapter="CHAPTER 01 &middot; FEATURED ART">
-        <h2 class="section__title">Selected Work</h2>
-        <p class="section__sub">Characters first / then Roblox UGC, creatures and production work. Click any panel to inspect.</p>
-      </div>
-      <article class="dio-feature" id="dio-feature">
-        <div class="dio-feature__head"><div><p class="hero__eyebrow">FEATURED / CHARACTER ART</p><h3>DIO <span>— Beyond the ordinary.</span></h3></div><span class="dio-feature__index">01 / CHARACTER STUDY</span></div>
-        <figure class="card dio-feature__art" data-full="assets/work/dio-turnaround.png" data-title="DIO — Character turnaround" tabindex="0" role="button" aria-label="Enlarge DIO character turnaround"><img src="assets/work/dio-turnaround.png" alt="DIO character turnaround showing side, front and back views" loading="lazy" width="4096" height="2160" /></figure>
-        <div class="dio-feature__foot"><span>STYLIZED 3D · CHARACTER TURNAROUND</span><span>VIEW FULL ARTWORK ↗</span></div>
-      </article>
-      <!-- Characters grid (rest of the categories render below the Rigging/Unity sections) -->
-      <div id="work-cats-top"></div>
-    </section>
-
-    <!-- ============ FANTASY BESTIARY ============ -->
-    <section class="section section--fantasy" id="fantasy">
-      <div class="section__head" data-chapter="CHAPTER 02 &middot; FANTASY BESTIARY">
-        <h2 class="section__title">Fantasy Bestiary</h2>
-        <p class="section__sub">Creature design, stylized modeling, hand-painted surfaces, rigging and animation studies forged for fantasy game worlds.</p>
-      </div>
-
-      <article class="fantasy-feature">
-        <div class="fantasy-feature__copy">
-          <p class="hero__eyebrow">FEATURED CREATURE STUDY</p>
-          <h3>Crimson Wyvern</h3>
-          <p>A full creature study focused on silhouette, wing structure, readable anatomy and production presentation across beauty and Blender process views.</p>
-          <div class="fantasy-runes" aria-hidden="true"><span>ᛟ</span><span>✦</span><span>ᚱ</span><span>◇</span><span>ᛞ</span></div>
-        </div>
-        <figure class="card fantasy-feature__image" data-full="assets/work/crimson-dragon-flight.webp" data-title="Crimson Wyvern — Creature Study">
-          <img class="card__img" src="assets/work/crimson-dragon-flight.webp" alt="Crimson Wyvern creature model" loading="lazy" width="4096" height="2160" />
-          <figcaption class="card__overlay"><div class="card__title">Crimson Wyvern</div><div class="card__tags">Creature · Modeling · Fantasy</div></figcaption>
-        </figure>
-      </article>
-
-      <div class="fantasy-gallery">
-        <figure class="card" data-full="assets/work/crimson-dragon-front.webp" data-title="Crimson Wyvern — Front View"><img class="card__img" src="assets/work/crimson-dragon-front.webp" alt="Crimson Wyvern front view" loading="lazy" /><figcaption class="card__overlay"><div class="card__title">Front Study</div><div class="card__tags">Creature · Orthographic</div></figcaption></figure>
-        <figure class="card" data-full="assets/work/crimson-dragon-side.webp" data-title="Crimson Wyvern — Side View"><img class="card__img" src="assets/work/crimson-dragon-side.webp" alt="Crimson Wyvern side view" loading="lazy" /><figcaption class="card__overlay"><div class="card__title">Side Study</div><div class="card__tags">Creature · Anatomy</div></figcaption></figure>
-        <figure class="card" data-full="assets/work/crimson-dragon-process-a.jpg" data-title="Crimson Wyvern — Blender Process"><img class="card__img" src="assets/work/crimson-dragon-process-a.jpg" alt="Crimson Wyvern Blender process view" loading="lazy" /><figcaption class="card__overlay"><div class="card__title">Wing Process</div><div class="card__tags">Blender · Topology</div></figcaption></figure>
-        <figure class="card" data-full="assets/work/crimson-dragon-process-b.jpg" data-title="Crimson Wyvern — Profile Process"><img class="card__img" src="assets/work/crimson-dragon-process-b.jpg" alt="Crimson Wyvern Blender side process" loading="lazy" /><figcaption class="card__overlay"><div class="card__title">Profile Process</div><div class="card__tags">Blender · Modeling</div></figcaption></figure>
-        <figure class="card" data-full="assets/work/crimson-dragon-process-c.jpg" data-title="Crimson Wyvern — Wing Process"><img class="card__img" src="assets/work/crimson-dragon-process-c.jpg" alt="Crimson Wyvern wing process" loading="lazy" /><figcaption class="card__overlay"><div class="card__title">Production View</div><div class="card__tags">Blender · Creature</div></figcaption></figure>
-        <figure class="card" data-full="assets/work/eye-tail-creature-sheet.jpg" data-title="Watcher Beast — Creature Sheet"><img class="card__img" src="assets/work/eye-tail-creature-sheet.jpg" alt="Fantasy creature design sheet with eye-pattern tail" loading="lazy" /><figcaption class="card__overlay"><div class="card__title">Watcher Beast</div><div class="card__tags">Creature · Design Sheet</div></figcaption></figure>
-        <figure class="card fantasy-gallery__wide" data-full="assets/work/fantasy-rokaka-bloom.webp" data-title="Rokaka Bloom — Fantasy Flora"><img class="card__img" src="assets/work/fantasy-rokaka-bloom.webp" alt="Stylized fantasy thorn fruit with leaves" loading="lazy" /><figcaption class="card__overlay"><div class="card__title">Rokaka Bloom</div><div class="card__tags">Fantasy Flora · Hand-Painted</div></figcaption></figure>
-      </div>
-
-      <div class="fantasy-motion-head">
-        <div><span>ARCANE MOTION STUDIES</span><h3>Rigging &amp; Animation</h3></div>
-        <p>Creature and character motion tests presented as production work, not just final renders.</p>
-      </div>
-      <div class="reel-grid fantasy-motion">
-        <figure class="reel-card"><video src="assets/video/serpent-animation-showcase.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Serpent · Animation Study</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/serpent-rig-showcase.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Serpent · Rig Controls</figcaption></figure>
-        <figure class="reel-card fantasy-motion__portrait"><video src="assets/video/anime-character-animation.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Anime Character · Motion</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/horse-animation-front.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Horse · Animation Front</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/horse-animation-back.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Horse · Animation Back</figcaption></figure>
-      </div>
-    </section>
-
-    <!-- ============ TURNTABLES ============ -->
-    <section class="section section--ink" id="reel">
-      <div class="section__head" data-chapter="CHAPTER 03 &middot; MOTION">
-        <h2 class="section__title">Character Turntables</h2>
-        <p class="section__sub">360-degree character presentation / motion panels from finished real-time work.</p>
-      </div>
-      <div class="reel-grid">
-        <figure class="reel-card"><video src="assets/video/naihe.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Naihe</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/kriger.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Kriger</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/valkyrie.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Valkyrie</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/xinyun.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Xinyun</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/athan.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Athan</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/naihe-cyberpunk.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Naihe · Cyberpunk</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/turn-seraph.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Nocturne Seraph</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/turn-freya.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Freya</figcaption></figure>
-      </div>
-    </section>
-
-    <!-- ============ 3D VIEWER ============ -->
-    <section class="section" id="viewer">
-      <div class="section__head" data-chapter="CHAPTER 04 &middot; INSPECT THE MODEL">
-        <h2 class="section__title">3D Viewer</h2>
-        <p class="section__sub">Inspect the actual asset / shaded, base color, wireframe, matcap, normals, UV and live model stats.</p>
+    </dialog>
+    <dialog id="model-dialog" aria-label="Interactive 3D model inspector">
+      <div class="dialog-top">
+        <span class="eyebrow">MODEL LAB / REAL-TIME INSPECTION</span
+        ><button class="close-dialog" aria-label="Close model inspector">
+          ✕
+        </button>
       </div>
       <div class="viewer">
         <div class="viewer__stage" id="viewer-stage">
-          <div class="viewer__loading" id="viewer-loading">Loading 3D model…</div>
+          <div class="viewer__loading" id="viewer-loading">
+            Loading 3D model…
+          </div>
           <div class="viewer__info" id="viewer-info"></div>
-          <div class="viewer__hint">drag = rotate · scroll = zoom · right-drag = pan</div>
-          <div class="viewer__chars" id="viewer-chars" role="group" aria-label="Choose character"></div>
+          <div class="viewer__hint">
+            drag = rotate · scroll = zoom · right-drag = pan
+          </div>
+          <div
+            class="viewer__chars"
+            id="viewer-chars"
+            role="group"
+            aria-label="Choose character"
+          ></div>
         </div>
         <div class="viewer__bar">
           <div class="viewer__group">
             <div class="viewer__modes" role="group" aria-label="Render mode">
-              <button class="vbtn is-active" type="button" data-mode="shaded">Shaded</button>
-              <button class="vbtn" type="button" data-mode="base">Base Color</button>
-              <button class="vbtn" type="button" data-mode="wire">Wireframe</button>
-              <button class="vbtn" type="button" data-mode="matcap">Matcap</button>
-              <button class="vbtn" type="button" data-mode="normals">Normals</button>
+              <button class="vbtn is-active" type="button" data-mode="shaded">
+                Shaded
+              </button>
+              <button class="vbtn" type="button" data-mode="base">
+                Base Color
+              </button>
+              <button class="vbtn" type="button" data-mode="wire">
+                Wireframe
+              </button>
+              <button class="vbtn" type="button" data-mode="matcap">
+                Matcap
+              </button>
+              <button class="vbtn" type="button" data-mode="normals">
+                Normals
+              </button>
               <button class="vbtn" type="button" data-mode="uv">UV</button>
             </div>
           </div>
           <div class="viewer__group viewer__group--end">
-            <button class="btn btn--ghost" id="viewer-info-btn" type="button">Model Info: Off</button>
-            <button class="btn btn--ghost" id="viewer-rotate" type="button">Auto-rotate: On</button>
-            <button class="btn btn--ghost" id="viewer-reset" type="button">Reset view</button>
+            <button class="btn btn--ghost" id="viewer-info-btn" type="button">
+              Model Info: Off
+            </button>
+            <button class="btn btn--ghost" id="viewer-rotate" type="button">
+              Auto-rotate: On
+            </button>
+            <button class="btn btn--ghost" id="viewer-reset" type="button">
+              Reset view
+            </button>
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- ============ RIGGING & ANIMATION ============ -->
-    <section class="section section--ink" id="rigging">
-      <div class="section__head" data-chapter="CHAPTER 05 &middot; RIG / ANIMATION">
-        <h2 class="section__title">Rigging &amp; Animation</h2>
-        <p class="section__sub">Production rigging, animation and VTuber systems / built to move, deform and ship.</p>
+    </dialog>
+    <dialog id="about-dialog" aria-label="About Jakkarin Sonchai">
+      <div class="dialog-top">
+        <span class="eyebrow">THE ARTIST / BEHIND THE WORLDS</span
+        ><button class="close-dialog" aria-label="Close artist profile">
+          ✕
+        </button>
       </div>
-      <div class="reel-grid">
-        <figure class="card" data-full="assets/work/rig-character.png" data-title="Character Rig"><img class="card__img" src="assets/work/rig-character.png" alt="Character Rig" loading="lazy" /><figcaption class="card__overlay"><div class="card__title">Character Rig</div><div class="card__tags">Blender · Rig</div></figcaption></figure>
-        <figure class="card" data-full="assets/work/rig-oni.png" data-title="Oni Maiden — Rig"><img class="card__img" src="assets/work/rig-oni.png" alt="Oni Maiden — Rig" loading="lazy" /><figcaption class="card__overlay"><div class="card__title">Oni Maiden</div><div class="card__tags">Blender · Rig</div></figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-blender.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Blender Rig &amp; Animation</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-client.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Character Rig — Client Work</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-vseeface.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Live VTuber Tracking · VSeeFace</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-cleric.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Cleric — Rig</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-casual.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Character Pose &amp; Rig</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-outfit.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Outfit — Client Work</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-shikichoco.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>ShikiChoco — VTuber Rig</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-nel05.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Base Character Setup</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-methira2.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Methira — Animation</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-mech-5.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Combat Drone — Rig &amp; Animation</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-mech-4.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Mechanical Rig — Deploy</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-mech-3.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Mechanical Core — Open</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-mech-2.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Mechanical Rig — Transform</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/rig-mech-1.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Mechanical Rig — Idle</figcaption></figure>
-      </div>
-    </section>
-
-    <!-- ============ UNITY ============ -->
-    <section class="section" id="unity">
-      <div class="section__head" data-chapter="CHAPTER 06 &middot; REAL-TIME ENGINE">
-        <h2 class="section__title">Unity</h2>
-        <p class="section__sub">Real-time avatar integration and animation tests inside Unity.</p>
-      </div>
-      <div class="reel-grid">
-        <figure class="reel-card"><video src="assets/video/unity-3.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Avatar Animation · Unity</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/unity-4.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Idle Dance · Unity</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/unity-5.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Avatar Test · Unity</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/unity-2.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>VTuber Scene · Unity</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/unity-6.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Avatar Showcase · Unity</figcaption></figure>
-        <figure class="reel-card"><video src="assets/video/unity-7.mp4" autoplay muted loop playsinline preload="metadata"></video><figcaption>Scene Test · Unity</figcaption></figure>
-      </div>
-    </section>
-
-    <!-- ============ WORK (remaining categories) ============ -->
-    <section class="section" id="work-more">
-      <div class="section__head" data-chapter="CHAPTER 07 &middot; MORE WORK">
-        <h2 class="section__title">UGC / Creatures / Props</h2>
-        <p class="section__sub">Production-ready assets across Roblox, creatures, weapons and client-focused work.</p>
-      </div>
-      <div id="work-cats-rest"></div>
-    </section>
-
-    <!-- ============ ABOUT ============ -->
-    <section class="section section--about" id="about">
-      <div class="about">
-        <div class="about__photo">
-          <img src="assets/work/portrait.jpg" alt="Portrait of Jakkarin Sonchai"
-               onerror="this.style.opacity=0" />
+      <!-- ============ ABOUT ============ -->
+      <section class="section section--about" id="about">
+        <div class="about">
+          <div class="about__photo">
+            <img
+              src="assets/work/portrait.jpg"
+              alt="Portrait of Jakkarin Sonchai"
+              onerror="this.style.opacity = 0"
+            />
+          </div>
+          <div class="about__text">
+            <p class="hero__eyebrow">CHAPTER 08 &middot; PROFILE</p>
+            <h2 class="section__title">About the Artist</h2>
+            <p>
+              I'm Jakkarin Sonchai (จักริน ศรชัย), a 3D artist based in Ubon
+              Ratchathani, Thailand, with a B.Sc. in Information Technology from
+              Ubon Ratchathani University. I specialise in stylized game
+              characters, weapons and props — modeling, UV mapping, texturing
+              and rigging — including Roblox avatar &amp; UGC character
+              commissions.
+            </p>
+            <p>
+              At Rievel Games I built game-ready 3D assets end to end: modeling
+              and UV mapping in Blender, texturing in Photoshop and Substance
+              Painter, rigging in Blender, and importing models and animation
+              into Unity. I'm currently open to freelance and full-time 3D
+              roles.
+            </p>
+            <h3 class="about__subtitle">Software &amp; Skills</h3>
+            <ul class="chips">
+              <li>Blender</li>
+              <li>ZBrush</li>
+              <li>Substance&nbsp;Painter</li>
+              <li>Photoshop</li>
+              <li>Unity</li>
+              <li>Premiere&nbsp;Pro</li>
+              <li>3D&nbsp;Modeling</li>
+              <li>UV&nbsp;Mapping</li>
+              <li>Rigging</li>
+              <li>PBR&nbsp;Texturing</li>
+              <li>Roblox&nbsp;UGC</li>
+            </ul>
+          </div>
         </div>
-        <div class="about__text">
-          <p class="hero__eyebrow">CHAPTER 08 &middot; PROFILE</p>
-          <h2 class="section__title">About the Artist</h2>
-          <p>
-            I'm Jakkarin Sonchai (จักริน ศรชัย), a 3D artist based in Ubon Ratchathani,
-            Thailand, with a B.Sc. in Information Technology from Ubon Ratchathani University.
-            I specialise in stylized game characters, weapons and props — modeling, UV mapping,
-            texturing and rigging — including Roblox avatar &amp; UGC character commissions.
+      </section>
+
+      <!-- ============ EXPERIENCE & EDUCATION ============ -->
+      <section class="section section--resume" id="experience">
+        <div class="section__head" data-chapter="CHAPTER 09 &middot; CAREER">
+          <h2 class="section__title">Experience &amp; Education</h2>
+          <p class="section__sub">Where I've built and learned</p>
+        </div>
+        <div class="resume">
+          <div class="resume__col">
+            <h3 class="resume__heading">Work Experience</h3>
+            <ol class="timeline">
+              <li class="timeline__item">
+                <span class="timeline__year">2023 – 2024</span>
+                <h4 class="timeline__role">
+                  3D Artist — Rievel Games Co., Ltd.
+                </h4>
+                <p class="timeline__desc">
+                  3D modeling &amp; UV mapping in Blender · texture painting in
+                  Photoshop &amp; Substance Painter · rigging in Blender ·
+                  importing 3D models and animation into Unity.
+                </p>
+              </li>
+              <li class="timeline__item">
+                <span class="timeline__year">2021</span>
+                <h4 class="timeline__role">Intern — Advice IT Infinite PCL</h4>
+                <p class="timeline__desc">
+                  Computer equipment sales &amp; repair · CCTV camera
+                  installation.
+                </p>
+              </li>
+              <li class="timeline__item">
+                <span class="timeline__year">2019</span>
+                <h4 class="timeline__role">Intern — Advice IT Infinite PCL</h4>
+                <p class="timeline__desc">
+                  Computer equipment sales &amp; repair.
+                </p>
+              </li>
+            </ol>
+          </div>
+          <div class="resume__col">
+            <h3 class="resume__heading">Education</h3>
+            <ol class="timeline">
+              <li class="timeline__item">
+                <span class="timeline__year">2022</span>
+                <h4 class="timeline__role">B.Sc. in Information Technology</h4>
+                <p class="timeline__desc">Ubon Ratchathani University</p>
+              </li>
+              <li class="timeline__item">
+                <span class="timeline__year">2020</span>
+                <h4 class="timeline__role">
+                  Diploma / High Vocational Certificate
+                </h4>
+                <p class="timeline__desc">Information Technology</p>
+              </li>
+            </ol>
+            <a
+              class="btn btn--ghost resume__cv"
+              href="assets/CV.pdf"
+              target="_blank"
+              rel="noopener"
+              >Download full CV (PDF)</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ CONTACT ============ -->
+      <section class="section section--contact" id="contact">
+        <div class="contact">
+          <p class="hero__eyebrow">CHAPTER 10 &middot; CONTACT</p>
+          <h2 class="section__title">Let's work together</h2>
+          <p class="contact__lead">
+            Available for freelance &amp; full-time 3D roles.
           </p>
-          <p>
-            At Rievel Games I built game-ready 3D assets end to end: modeling and UV mapping in
-            Blender, texturing in Photoshop and Substance Painter, rigging in Blender, and
-            importing models and animation into Unity. I'm currently open to freelance and
-            full-time 3D roles.
+          <a class="contact__email" href="mailto:astter2542@gmail.com"
+            >astter2542@gmail.com</a
+          >
+          <p class="contact__meta">
+            <a href="tel:+66949210465">+66 94 921 0465</a>
+            <span aria-hidden="true">·</span>
+            <span>Ubon Ratchathani, Thailand</span>
           </p>
-          <h3 class="about__subtitle">Software &amp; Skills</h3>
-          <ul class="chips">
-            <li>Blender</li>
-            <li>ZBrush</li>
-            <li>Substance&nbsp;Painter</li>
-            <li>Photoshop</li>
-            <li>Unity</li>
-            <li>Premiere&nbsp;Pro</li>
-            <li>3D&nbsp;Modeling</li>
-            <li>UV&nbsp;Mapping</li>
-            <li>Rigging</li>
-            <li>PBR&nbsp;Texturing</li>
-            <li>Roblox&nbsp;UGC</li>
+          <ul class="social">
+            <li>
+              <a
+                href="https://www.artstation.com/tanxzjakkarin6"
+                target="_blank"
+                rel="noopener"
+                >ArtStation ↗</a
+              >
+            </li>
+            <li>
+              <a href="assets/CV.pdf" target="_blank" rel="noopener"
+                >CV (PDF)</a
+              >
+            </li>
+            <li><a href="mailto:astter2542@gmail.com">Email</a></li>
           </ul>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ EXPERIENCE & EDUCATION ============ -->
-    <section class="section section--resume" id="experience">
-      <div class="section__head" data-chapter="CHAPTER 09 &middot; CAREER">
-        <h2 class="section__title">Experience &amp; Education</h2>
-        <p class="section__sub">Where I've built and learned</p>
-      </div>
-      <div class="resume">
-        <div class="resume__col">
-          <h3 class="resume__heading">Work Experience</h3>
-          <ol class="timeline">
-            <li class="timeline__item">
-              <span class="timeline__year">2023 – 2024</span>
-              <h4 class="timeline__role">3D Artist — Rievel Games Co., Ltd.</h4>
-              <p class="timeline__desc">
-                3D modeling &amp; UV mapping in Blender · texture painting in Photoshop &amp;
-                Substance Painter · rigging in Blender · importing 3D models and animation into Unity.
-              </p>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__year">2021</span>
-              <h4 class="timeline__role">Intern — Advice IT Infinite PCL</h4>
-              <p class="timeline__desc">Computer equipment sales &amp; repair · CCTV camera installation.</p>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__year">2019</span>
-              <h4 class="timeline__role">Intern — Advice IT Infinite PCL</h4>
-              <p class="timeline__desc">Computer equipment sales &amp; repair.</p>
-            </li>
-          </ol>
-        </div>
-        <div class="resume__col">
-          <h3 class="resume__heading">Education</h3>
-          <ol class="timeline">
-            <li class="timeline__item">
-              <span class="timeline__year">2022</span>
-              <h4 class="timeline__role">B.Sc. in Information Technology</h4>
-              <p class="timeline__desc">Ubon Ratchathani University</p>
-            </li>
-            <li class="timeline__item">
-              <span class="timeline__year">2020</span>
-              <h4 class="timeline__role">Diploma / High Vocational Certificate</h4>
-              <p class="timeline__desc">Information Technology</p>
-            </li>
-          </ol>
-          <a class="btn btn--ghost resume__cv" href="assets/CV.pdf" target="_blank" rel="noopener">Download full CV (PDF)</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ CONTACT ============ -->
-    <section class="section section--contact" id="contact">
-      <div class="contact">
-        <p class="hero__eyebrow">CHAPTER 10 &middot; CONTACT</p>
-        <h2 class="section__title">Let's work together</h2>
-        <p class="contact__lead">Available for freelance &amp; full-time 3D roles.</p>
-        <a class="contact__email" href="mailto:astter2542@gmail.com">astter2542@gmail.com</a>
-        <p class="contact__meta">
-          <a href="tel:+66949210465">+66 94 921 0465</a>
-          <span aria-hidden="true">·</span>
-          <span>Ubon Ratchathani, Thailand</span>
-        </p>
-        <ul class="social">
-          <li><a href="https://www.artstation.com/tanxzjakkarin6" target="_blank" rel="noopener">ArtStation ↗</a></li>
-          <li><a href="assets/CV.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
-          <li><a href="mailto:astter2542@gmail.com">Email</a></li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <span>© <span id="year"></span> Jakkarin Sonchai</span>
-    <a href="#top">Back to top ↑</a>
-  </footer>
-
-  <!-- ============ LIGHTBOX ============ -->
-  <div class="lightbox" id="lightbox" aria-hidden="true">
-    <button class="lightbox__close" aria-label="Close">✕</button>
-    <img class="lightbox__img" src="" alt="" />
-  </div>
-
-  <script src="main.js?v=10"></script>
-  <script src="manga-motion.js?v=14"></script>
-  <script src="anime-medieval-fantasy.js?v=1"></script>
-
-  <!-- 3D Viewer (Three.js via CDN modules) -->
-  <script type="importmap">
-  {
-    "imports": {
-      "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
-      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
-    }
-  }
-  </script>
-  <script type="module" src="viewer.js?v=10"></script>
-</body>
+      </section>
+    </dialog>
+    <noscript
+      ><div class="no-script">
+        This interactive gallery requires JavaScript. Explore the artist’s
+        <a href="https://www.artstation.com/tanxzjakkarin6"
+          >ArtStation portfolio</a
+        >
+        or <a href="assets/CV.pdf">download the CV</a>.
+      </div></noscript
+    >
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="museum.js?v=1"></script>
+  </body>
 </html>
