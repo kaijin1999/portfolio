@@ -1,24 +1,24 @@
-# The Neon Museum — Jakkarin Sonchai
+# The Artist’s Gallery — Jakkarin Sonchai
 
-A cyberpunk 3D portfolio museum, published with GitHub Pages at https://kaijin1999.github.io/portfolio/.
+A minimal, ivory-and-stone 3D portfolio gallery at https://kaijin1999.github.io/portfolio/.
 
-## Experience
+## Visiting
 
-- Walk with WASD or arrow keys after selecting the 3D room. Drag to look; touch devices also have direction buttons.
-- Six exhibition wings, with six framed works per wall set and previous/next controls.
-- A real Valkyrie glTF sculpture opens the two-model inspector (Valkyrie and Kaijin).
-- All 100 original exhibits: 27 characters, 11 creatures, 15 Roblox UGC items, 5 props/weapons, 36 rigging/motion exhibits and 6 Unity projects.
-- Category filters, original full-resolution artwork, controlled video playback, artist profile and CV links.
-- The collection remains usable when WebGL or the Three.js CDN is unavailable. JavaScript-disabled visitors get ArtStation and CV links.
+- Select **Walk through the gallery** for an unobstructed view. Drag to look; use WASD or arrow keys to walk. Click the floor to walk to a point. Mobile visitors have on-screen direction controls.
+- Press Escape or select Return to overview to leave walking mode. Navigation respects the room walls and both sculpture plinths.
+- **Valkyrie** and **Kaijin** occupy two separate plinths with an aisle between them. Click either sculpture or its caption to inspect that model.
+- Both sculptures and the model viewer use only glTF base-color textures/factors via unlit materials. There are no lights, tone mapping, emissive effects, environment reflections or additional shading on the models. Their painted anime shading is preserved. The viewer supports orbit, zoom, model details and optional rotation.
+- The archive retains all 100 exhibits: 27 characters, 11 creatures, 15 Roblox UGC items, 5 props/weapons, 36 rigging/motion exhibits and 6 Unity projects.
+- The archive works when the Three.js CDN or WebGL is unavailable. JavaScript-disabled visitors get ArtStation and CV links.
 
 ## Editing
 
-`collection.js` is the source of truth for categories, titles, source files and media types. Original media live in `assets/`. `assets/thumbs/` contains optimized image previews and actual video frames. Image previews use the original filename with `.jpg`; video previews use `video-<original-name>.jpg`.
+`collection.js` contains artwork categories and metadata. Original media live in `assets/`; optimized image and real-video-frame previews are in `assets/thumbs/`.
 
-`museum.js` handles the collection and dialogs; `room.js` handles the Three.js environment, walking, artwork selection and GPU cleanup; `museum.css` styles the interface. `viewer.js` retains the original model inspection modes. Legacy theme files remain in the repository but are no longer loaded.
+`museum.js` handles collection and dialogs. `room.js` owns the gallery and navigation. `model-art.js` shares the model definitions, base-color conversion, precise skinned-model bounds and disposal. `viewer.js` owns the unlit inspector. `museum.css` styles the interface. Legacy themes remain in the repository but are not loaded.
 
-Serve the repository with any local static HTTP server (for example `npx serve .`). No build step is required. GitHub Pages publishes the root of `main`. `.nojekyll` is retained. Three.js is pinned to 0.160.0 via the import map; fonts are loaded from Google Fonts.
+Serve the repository with a local static HTTP server (for example `npx serve .`). No build step is required. GitHub Pages publishes the root of `main`; `.nojekyll` is retained. Three.js is pinned to 0.160.0 via the import map. Fonts are loaded from Google Fonts.
 
 ## Validation
 
-Desktop and mobile browser checks cover category counts, wall pagination, selecting framed artwork in 3D, WASD walking, drag camera, full-size images, artwork navigation, video playback/cleanup, both models, six render modes, artist profile, and fallback with the 3D CDN blocked. All 200 original/thumbnail references exist. Responsive layouts checked at 320, 390, 768, 1024 and 1440 pixels.
+Browser tests verify two sculptures, base-color-only materials and zero scene lights; clicking either sculpture selects the correct model; keyboard and click-to-walk movement; collisions at both plinths; Escape reset; mobile direction controls; all 100 works and six categories; image/video/profile dialogs; responsive layouts at 320–1440 pixels; and the archive fallback with the 3D CDN blocked.

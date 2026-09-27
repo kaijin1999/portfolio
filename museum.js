@@ -112,18 +112,26 @@ $("#art-dialog").addEventListener("close", () =>
 );
 $("#about-button").onclick = () => $("#about-dialog").showModal();
 let viewerPromise;
-$("#inspect-model").onclick = async () => {
+async function openModel(id = "valkyrie") {
   const d = $("#model-dialog");
-  d.showModal();
+  if (!d.open) d.showModal();
+  d.dataset.model = id;
   try {
-    viewerPromise ??= import("./viewer.js?v=11");
-    await viewerPromise;
+    viewerPromise ??= import("./viewer.js?v=12");
+    const viewer = await viewerPromise;
+    await viewer.selectModel(d.dataset.model);
   } catch (err) {
     $("#viewer-loading").textContent =
       "3D preview unavailable. Please try again with WebGL enabled.";
     console.error(err);
   }
-};
+}
+document
+  .querySelectorAll("[data-inspect]")
+  .forEach((b) =>
+    b.addEventListener("click", () => openModel(b.dataset.inspect)),
+  );
+window.addEventListener("inspect-model", (e) => openModel(e.detail));
 function resetRoom() {
   window.dispatchEvent(new Event("reset-gallery"));
 }
@@ -158,7 +166,7 @@ $("#prev-wall").onclick = () =>
   window.dispatchEvent(new CustomEvent("gallery-page", { detail: -1 }));
 $("#next-wall").onclick = () =>
   window.dispatchEvent(new CustomEvent("gallery-page", { detail: 1 }));
-import("./room.js?v=1").catch((error) => {
+import("./room.js?v=2").catch((error) => {
   console.error(error);
   $("#gallery-status").innerHTML =
     'The 3D room could not open on this device.<br><br><a href="#collection">Browse all 100 artworks below ↗</a>';
