@@ -1,4 +1,4 @@
-import { groups, artworks } from "./collection.js?v=20261004";
+import { groups, artworks } from "./collection.js?v=20261004r2";
 const $ = (s) => document.querySelector(s);
 let currentGroup = "characters",
   filtered = artworks,
@@ -50,7 +50,8 @@ $("#filters").addEventListener("click", (e) => {
 });
 function showArt(id) {
   currentArt = Number(id);
-  const a = artworks[currentArt];
+  const a = artworks.find((artwork) => artwork.id === currentArt);
+  if (!a) return;
   $("#art-title").textContent = a.title;
   $("#art-category").textContent =
     groups.find((g) => g.id === a.group).name + " / EXHIBIT " + pad(a.id + 1);
@@ -167,7 +168,7 @@ $("#prev-wall").onclick = () =>
   window.dispatchEvent(new CustomEvent("gallery-page", { detail: -1 }));
 $("#next-wall").onclick = () =>
   window.dispatchEvent(new CustomEvent("gallery-page", { detail: 1 }));
-import("./room.js?v=20261004").catch((error) => {
+import("./room.js?v=20261004r2").catch((error) => {
   console.error(error);
   $("#gallery-status").innerHTML =
     `The 3D room could not open on this device.<br><br><a href="#collection">Browse all ${artworks.length} artworks below ↗</a>`;
