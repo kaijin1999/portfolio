@@ -972,7 +972,7 @@ body:has(dialog[open]) {
     display: none;
   }
   .exhibit-caption {
-    bottom: 197px;
+    bottom: 241px;
     width: 85%;
     justify-content: center;
     gap: 20px;

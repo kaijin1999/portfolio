@@ -1,6 +1,6 @@
 import * as THREE from "three";
-import { groups, artworks } from "./collection.js";
-import { thumbnail } from "./museum.js?v=2";
+import { groups, artworks } from "./collection.js?v=20261004";
+import { thumbnail } from "./museum.js?v=20261004";
 import { models, loadArtwork, preciseBounds } from "./model-art.js";
 const host = document.getElementById("room"),
   museum = document.querySelector(".museum"),
@@ -204,7 +204,8 @@ function disposePanels() {
 function setPanels() {
   const gen = ++generation;
   disposePanels();
-  const list = artworks.filter((a) => a.group === currentGroup),
+  const list = artworks.filter((a) => a.group === currentGroup)
+      .sort((a, b) => (b.added || "").localeCompare(a.added || "")),
     pageCount = Math.ceil(list.length / 6);
   page = (page + pageCount) % pageCount;
   document.getElementById("wall-page").textContent =

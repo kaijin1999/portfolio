@@ -1,4 +1,4 @@
-import { groups, artworks } from "./collection.js";
+import { groups, artworks } from "./collection.js?v=20261004";
 const $ = (s) => document.querySelector(s);
 let currentGroup = "characters",
   filtered = artworks,
@@ -28,8 +28,9 @@ $("#filters").innerHTML = [{ id: "all", name: "All works" }, ...groups]
   )
   .join("");
 function renderCollection(group) {
-  filtered =
-    group === "all" ? artworks : artworks.filter((a) => a.group === group);
+  filtered = (
+    group === "all" ? [...artworks] : artworks.filter((a) => a.group === group)
+  ).sort((a, b) => (b.added || "").localeCompare(a.added || ""));
   $("#result-count").textContent = `${filtered.length} EXHIBITS`;
   document.querySelectorAll(".filter").forEach((b) => {
     b.classList.toggle("selected", b.dataset.filter === group);
@@ -166,8 +167,8 @@ $("#prev-wall").onclick = () =>
   window.dispatchEvent(new CustomEvent("gallery-page", { detail: -1 }));
 $("#next-wall").onclick = () =>
   window.dispatchEvent(new CustomEvent("gallery-page", { detail: 1 }));
-import("./room.js?v=2").catch((error) => {
+import("./room.js?v=20261004").catch((error) => {
   console.error(error);
   $("#gallery-status").innerHTML =
-    'The 3D room could not open on this device.<br><br><a href="#collection">Browse all 100 artworks below ↗</a>';
+    `The 3D room could not open on this device.<br><br><a href="#collection">Browse all ${artworks.length} artworks below ↗</a>`;
 });
