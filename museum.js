@@ -1,4 +1,4 @@
-import { groups, artworks } from "./collection.js?v=20261004r2";
+import { groups, artworks } from "./collection.js?v=20261004r3";
 const $ = (s) => document.querySelector(s);
 let currentGroup = "characters",
   filtered = artworks,
@@ -168,7 +168,7 @@ $("#prev-wall").onclick = () =>
   window.dispatchEvent(new CustomEvent("gallery-page", { detail: -1 }));
 $("#next-wall").onclick = () =>
   window.dispatchEvent(new CustomEvent("gallery-page", { detail: 1 }));
-import("./room.js?v=20261004r2").catch((error) => {
+import("./room.js?v=20261004r3").catch((error) => {
   console.error(error);
   $("#gallery-status").innerHTML =
     `The 3D room could not open on this device.<br><br><a href="#collection">Browse all ${artworks.length} artworks below ↗</a>`;
