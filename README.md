@@ -1,6 +1,6 @@
-# The Artist’s Gallery — Jakkarin Sonchai
+# Jack — 3D Creator
 
-A minimal, ivory-and-stone 3D portfolio gallery at https://kaijin1999.github.io/portfolio/.
+Jakkarin Sonchai's portfolio at https://kaijin1999.github.io/portfolio/. The landing page uses React, TypeScript, Tailwind CSS, Framer Motion and Lucide React. The interactive 3D gallery and full artwork collection live at `museum.html`.
 
 ## Visiting
 
@@ -17,7 +17,9 @@ A minimal, ivory-and-stone 3D portfolio gallery at https://kaijin1999.github.io/
 
 `museum.js` handles collection and dialogs. `room.js` owns the gallery and navigation. `model-art.js` shares the model definitions, base-color conversion, precise skinned-model bounds and disposal. `viewer.js` owns the unlit inspector. `museum.css` styles the interface. Legacy themes remain in the repository but are not loaded.
 
-Serve the repository with a local static HTTP server (for example `npx serve .`). No build step is required. GitHub Pages publishes the root of `main`; `.nojekyll` is retained. Three.js is pinned to 0.160.0 via the import map. Fonts are loaded from Google Fonts.
+Run `npm ci` and `npm run dev` to edit the landing page. Update content in `landing/content.ts`. Run `npm run build` to type-check and regenerate `index.html` and `landing-build/`. Commit both generated paths with landing-page changes so GitHub Pages can continue serving the root of `main`. To preview the production build, serve the repository root with a local static HTTP server.
+
+The museum uses Three.js 0.160.0 via the import map. Fonts are loaded from Google Fonts.
 
 ## Validation
 

@@ -43,7 +43,9 @@ function renderCollection(group) {
     })
     .join("");
 }
-renderCollection("all");
+const params = new URLSearchParams(window.location.search);
+const group = params.get("group");
+renderCollection(groups.some((item) => item.id === group) ? group : "all");
 $("#filters").addEventListener("click", (e) => {
   const b = e.target.closest("[data-filter]");
   if (b) renderCollection(b.dataset.filter);
@@ -146,7 +148,6 @@ $("#nav-museum").onclick = () => {
   });
   resetRoom();
 };
-$(".brand").addEventListener("click", resetRoom);
 $("#reset-room").onclick = resetRoom;
 $("#room-nav").addEventListener("click", (e) => {
   const b = e.target.closest("[data-group]");
@@ -168,6 +169,10 @@ $("#prev-wall").onclick = () =>
   window.dispatchEvent(new CustomEvent("gallery-page", { detail: -1 }));
 $("#next-wall").onclick = () =>
   window.dispatchEvent(new CustomEvent("gallery-page", { detail: 1 }));
+const work = params.get("work");
+if (work !== null && artworks.some((item) => String(item.id) === work)) {
+  requestAnimationFrame(() => showArt(work));
+}
 import("./room.js?v=20261004r3").catch((error) => {
   console.error(error);
   $("#gallery-status").innerHTML =
