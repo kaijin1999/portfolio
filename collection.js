@@ -56,6 +56,11 @@ export const groups = [
     color: "#91dbff",
   },
 ];
+export function thumbnail(artwork) {
+  const name = artwork.src.split("/").pop().replace(/\.[^.]+$/, ".jpg");
+  return "assets/thumbs/" + (artwork.type === "video" ? "video-" : "") + name;
+}
+
 export const artworks = [
   {
     id: 0,

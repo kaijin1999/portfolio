@@ -9,7 +9,7 @@ import {
 const stage = document.getElementById("viewer-stage");
 const loading = document.getElementById("viewer-loading");
 const scene = new THREE.Scene();
-scene.background = new THREE.Color("#ebe7df");
+scene.background = new THREE.Color("#292a34");
 const camera = new THREE.PerspectiveCamera(40, 1, 0.01, 1000);
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(Math.min(devicePixelRatio, 1.75));

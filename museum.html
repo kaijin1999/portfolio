@@ -8,7 +8,7 @@
       name="description"
       content="Step inside Jakkarin Sonchai's 3D art museum. Explore characters, creatures, Roblox UGC, props, rigging, animation, environments, visual effects and Unity projects."
     />
-    <meta name="theme-color" content="#f5f3ee" />
+    <meta name="theme-color" content="#0C0C0C" />
     <link rel="canonical" href="https://kaijin1999.github.io/portfolio/museum.html" />
     <meta
       property="og:title"
@@ -25,21 +25,21 @@
     />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' fill='%23f5f3ee'/%3E%3Cpath d='M10 8v24m20-24L12 20l18 12' fill='none' stroke='%23383129' stroke-width='4'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%230c0c0c'/%3E%3Cpath d='M26 10v14a7 7 0 0 1-14 0' fill='none' stroke='%23d7e2ea' stroke-width='4'/%3E%3C/svg%3E"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="museum.css?v=20261004" />
+    <link rel="stylesheet" href="museum.css?v=dark-gallery" />
   </head>
   <body>
     <a class="skip" href="#collection">Skip to artwork collection</a>
     <header class="masthead">
       <a class="brand" href="./" aria-label="Portfolio home"
-        ><span class="brand-mark">K<span>↗</span></span
+        ><span class="brand-mark" aria-hidden="true">J</span
         ><span
           >JAKKARIN SONCHAI<small>3D ARTIST / DIGITAL COLLECTION</small></span
         ></a
@@ -63,13 +63,13 @@
         <div class="room-shade"></div>
         <div class="museum-title">
           <p class="eyebrow">SELECTED WORKS — JAKKARIN SONCHAI</p>
-          <h1>A world of<br /><em>imagined lives.</em></h1>
+          <h1 class="gradient-heading">A world of<br />imagined lives.</h1>
           <p class="intro">
             A collection of characters, creatures<br />and the worlds they
             belong to.
           </p>
           <button id="start-walk" class="walk-entry" disabled>
-            Walk through the gallery <span>↗</span>
+            Walk through the gallery <span aria-hidden="true">↗</span>
           </button>
         </div>
         <div class="room-tag">
@@ -137,7 +137,7 @@
         <div class="collection-heading">
           <div>
             <p class="eyebrow">THE COMPLETE ARCHIVE</p>
-            <h2>The collection<span>.</span></h2>
+            <h2 class="gradient-heading">The collection</h2>
           </div>
           <p>Every piece has a story.<br />Take a closer look.</p>
         </div>
@@ -153,7 +153,7 @@
       </section>
       <section class="contact-strip">
         <p class="eyebrow">OPEN TO NEW COLLABORATIONS</p>
-        <h2>
+        <h2 class="gradient-heading">
           A new world starts<br /><a href="mailto:astter2542@gmail.com"
             >with a conversation. ↗</a
           >
@@ -406,6 +406,6 @@
         }
       }
     </script>
-    <script type="module" src="museum.js?v=jack-landing"></script>
+    <script type="module" src="museum.js?v=dark-gallery"></script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 import * as THREE from "three";
-import { groups, artworks } from "./collection.js?v=20261004r3";
-import { thumbnail } from "./museum.js?v=20261004r3";
+import { groups, artworks, thumbnail } from "./collection.js?v=dark-gallery";
 import { models, loadArtwork, preciseBounds } from "./model-art.js";
 const host = document.getElementById("room"),
   museum = document.querySelector(".museum"),
@@ -15,7 +14,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.NoToneMapping;
 host.appendChild(renderer.domElement);
 const scene = new THREE.Scene();
-scene.background = new THREE.Color("#edeae3");
+scene.background = new THREE.Color("#191a22");
 const camera = new THREE.PerspectiveCamera(54, 1, 0.1, 100);
 let yaw = 0,
   pitch = -0.055,
@@ -39,12 +38,15 @@ function box(w, h, d, x, y, z, material) {
   scene.add(m);
   return m;
 }
-const back = mat("#e8e4dc"),
-  left = mat("#e0ddd5"),
-  right = mat("#dedad2"),
-  ceiling = mat("#f5f2eb"),
-  floorMat = mat("#d6d0c5"),
-  trim = mat("#c4bcaf");
+const back = mat("#343641"),
+  left = mat("#22232b"),
+  right = mat("#292a34"),
+  ceiling = mat("#191a22"),
+  floorMat = mat("#242530"),
+  trim = mat("#565663"),
+  joint = mat("#33343f"),
+  rib = mat("#454552"),
+  ceilingStrip = mat("#81708e");
 const floor = box(30, 0.25, 42, 0, -0.14, 5, floorMat);
 floor.userData.floor = true;
 box(30, 10, 0.3, 0, 5, -10, back);
@@ -52,42 +54,42 @@ box(0.3, 10, 42, -15, 5, 5, left);
 box(0.3, 10, 42, 15, 5, 5, right);
 box(30, 0.3, 42, 0, 10, 5, ceiling);
 box(30, 10, 0.3, 0, 5, 25, back);
-// Thin architectural joints replace the previous glowing floor grid.
+// Architectural seams and ceiling strips are painted onto unlit surfaces.
 for (const x of [-10, -5, 0, 5, 10])
-  box(0.015, 0.006, 40, x, 0.002, 5, mat("#cac3b7"));
+  box(0.015, 0.006, 40, x, 0.002, 5, joint);
 for (const z of [-5, 2, 9, 16, 23])
-  box(30, 0.006, 0.015, 0, 0.002, z, mat("#cac3b7"));
+  box(30, 0.006, 0.015, 0, 0.002, z, joint);
 box(29.7, 0.1, 0.03, 0, 0.08, -9.83, trim);
 box(0.03, 0.1, 41, -14.83, 0.08, 5, trim);
 box(0.03, 0.1, 41, 14.83, 0.08, 5, trim);
 for (const x of [-10, 10]) {
-  box(0.08, 9, 0.03, x, 4.5, -9.82, mat("#ddd7cb"));
-  box(1.2, 0.02, 33, x, 9.81, 5, mat("#fffcf5"));
+  box(0.08, 9, 0.03, x, 4.5, -9.82, rib);
+  box(0.42, 0.02, 33, x, 9.81, 5, ceilingStrip);
 }
+// Canvas labels use the page's display face when the font is available.
+await Promise.race([
+  document.fonts.load("600 70px Kanit").catch(() => {}),
+  new Promise((resolve) => setTimeout(resolve, 750)),
+]);
 function label(
   text,
   {
     width = 1536,
     height = 180,
     size = 70,
-    color = "#61594c",
-    background = null,
-    font = "Georgia",
+    color = "#d7e2ea",
+    weight = 600,
   } = {},
 ) {
   const c = document.createElement("canvas");
   c.width = width;
   c.height = height;
   const ctx = c.getContext("2d");
-  if (background) {
-    ctx.fillStyle = background;
-    ctx.fillRect(0, 0, width, height);
-  }
   ctx.fillStyle = color;
-  ctx.font = `${size}px ${font}`;
+  ctx.font = `${weight} ${size}px Kanit, sans-serif`;
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
-  ctx.fillText(text, width / 2, height / 2, width - 80);
+  ctx.fillText(text.toUpperCase(), width / 2, height / 2, width - 80);
   const t = new THREE.CanvasTexture(c);
   t.colorSpace = THREE.SRGBColorSpace;
   return t;
@@ -111,23 +113,29 @@ const roomSign = sign("The character collection", 12, 1.2, 0, 7.8, -9.8, {
 });
 sign("J A K K A R I N   S O N C H A I", 9, 0.6, 0, 6.7, -9.79, {
   size: 46,
-  font: "sans-serif",
+  color: "#abb6c3",
+  weight: 400,
 });
 sign("The Artist’s Gallery", 9, 1, 0, 5, 24.8).rotation.y = Math.PI;
 const sculptures = [];
+const plinthTop = mat("#656374");
+const plinthSide = mat("#373843");
+const plinthBase = mat("#2a2a34");
+const plinthFront = mat("#494959");
+const plinthRear = mat("#3e3e4c");
 for (const [i, model] of models.entries()) {
   const r = model.radius - 0.4;
   const surfaces = [
-    mat("#d3cbbd"),
-    mat("#d3cbbd"),
-    mat("#f6f2e9"),
-    mat("#aaa191"),
-    mat("#ddd5c7"),
-    mat("#c9c0b0"),
+    plinthSide,
+    plinthSide,
+    plinthTop,
+    plinthBase,
+    plinthFront,
+    plinthRear,
   ];
   box(r * 2, 0.72, r * 1.7, model.x, 0.48, model.z, surfaces);
-  box(r * 1.94, 0.13, r * 1.64, model.x, 0.07, model.z, mat("#aba18e"));
-  box(r * 2, 0.03, r * 1.7, model.x, 0.855, model.z, mat("#f6f2e9"));
+  box(r * 1.94, 0.13, r * 1.64, model.x, 0.07, model.z, plinthBase);
+  box(r * 2, 0.03, r * 1.7, model.x, 0.855, model.z, plinthTop);
   sign(
     `${i === 0 ? "I" : "II"}  /  ${model.name}`,
     r * 1.4,
@@ -222,12 +230,12 @@ function setPanels() {
     panels.push(p);
     const frame = new THREE.Mesh(
       new THREE.BoxGeometry(5.1, 3.5, 0.1),
-      mat("#554d41"),
+      mat("#92909f"),
     );
     p.add(frame);
     const mount = new THREE.Mesh(
       new THREE.PlaneGeometry(4.97, 3.37),
-      mat("#f9f7f1"),
+      mat("#17171f"),
     );
     mount.position.z = 0.06;
     mount.userData.art = a.id;
@@ -272,7 +280,7 @@ function setPanels() {
       new THREE.MeshBasicMaterial({
         map: label(
           `${String(a.id + 1).padStart(2, "0")}   /   ${a.type === "video" ? "MOVING IMAGE" : "ARTWORK"}`,
-          { size: 80, font: "sans-serif" },
+          { size: 80, color: "#abb6c3", weight: 400 },
         ),
         transparent: true,
         toneMapped: false,

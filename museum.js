@@ -1,16 +1,9 @@
-import { groups, artworks } from "./collection.js?v=20261004r3";
+import { groups, artworks, thumbnail } from "./collection.js?v=dark-gallery";
 const $ = (s) => document.querySelector(s);
 let currentGroup = "characters",
   filtered = artworks,
   currentArt = 0;
 const pad = (n) => String(n).padStart(2, "0");
-export function thumbnail(a) {
-  const name = a.src
-    .split("/")
-    .pop()
-    .replace(/\.[^.]+$/, ".jpg");
-  return "assets/thumbs/" + (a.type === "video" ? "video-" : "") + name;
-}
 document
   .querySelectorAll(".total-count")
   .forEach((e) => (e.textContent = artworks.length));
@@ -121,7 +114,7 @@ async function openModel(id = "valkyrie") {
   if (!d.open) d.showModal();
   d.dataset.model = id;
   try {
-    viewerPromise ??= import("./viewer.js?v=12");
+    viewerPromise ??= import("./viewer.js?v=dark-gallery");
     const viewer = await viewerPromise;
     await viewer.selectModel(d.dataset.model);
   } catch (err) {
@@ -173,7 +166,7 @@ const work = params.get("work");
 if (work !== null && artworks.some((item) => String(item.id) === work)) {
   requestAnimationFrame(() => showArt(work));
 }
-import("./room.js?v=20261004r3").catch((error) => {
+import("./room.js?v=dark-gallery").catch((error) => {
   console.error(error);
   $("#gallery-status").innerHTML =
     `The 3D room could not open on this device.<br><br><a href="#collection">Browse all ${artworks.length} artworks below ↗</a>`;
