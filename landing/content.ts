@@ -18,10 +18,10 @@ export const reels: readonly (readonly Image[])[] = [
   [
     ["crimson-dragon-flight", "Crimson Dragon in flight"],
     ["char-seraph", "Nocturne Seraph turnaround"],
-    ["char-scarlet", "Scarlet character sheet"],
-    ["video-kriger", "Kriger animation study"],
-    ["new-rig-phoenix", "Phoenix creature rig"],
-    ["cyber-valkyrie", "Cyberpunk Valkyrie"],
+    ["beldia-armor", "Beldia armor texture study"],
+    ["video-zombie-tiger", "Zombie Tiger run cycle"],
+    ["video-rootback-gorilla", "Rootback Gorilla foliage rig"],
+    ["kaijin-unity", "Kaijin sword attack in Unity"],
     ["roblox-golden-stand", "Golden Stand Roblox avatar"],
     ["video-serpent-animation-showcase", "Serpent animation showcase"],
     ["char-oni", "Oni Maiden character sheet"],
@@ -31,10 +31,10 @@ export const reels: readonly (readonly Image[])[] = [
   [
     ["roblox-stone-king", "Stone King Roblox avatar"],
     ["video-turn-seraph", "Nocturne Seraph turntable"],
-    ["new-rig-ancient-dragon", "Ancient Dragon rig"],
-    ["video-valkyrie", "Valkyrie animation"],
-    ["new-rig-wicked-spider", "Wicked Spider rig"],
-    ["char-vermilion", "Vermilion Knight turnaround"],
+    ["video-zombie-chameleon", "Zombie Chameleon walk cycle"],
+    ["oni-unity-shader", "Oni toon shader study in Unity"],
+    ["video-glowmoss-frog", "Glowmoss Frog jump"],
+    ["briefcase-crma", "CRMA briefcase hardware detail"],
     ["video-rig-mech-5", "Mechanical rig study"],
     ["roblox-dio", "DIO Roblox avatar"],
     ["new-frog-avatar", "Frog avatar"],
@@ -51,6 +51,16 @@ export type Project = {
 };
 
 export const projects: Project[] = [
+  {
+    title: "Creature Rigging",
+    category: "Rigging & Motion",
+    group: "motion",
+    images: [
+      ["thumbs/video-zombie-chameleon.jpg", "Zombie Chameleon with a curled tail"],
+      ["thumbs/video-zombie-tiger.jpg", "Zombie Tiger mid-stride"],
+      ["thumbs/video-rootback-gorilla.jpg", "Rootback Gorilla with animated foliage"],
+    ],
+  },
   {
     title: "Nocturne Seraph",
     category: "Character Art",
@@ -71,16 +81,6 @@ export const projects: Project[] = [
       ["work/crimson-dragon-front.webp", "Crimson Dragon viewed from the front"],
       ["work/crimson-dragon-process-c.jpg", "Crimson Dragon model in progress"],
       ["work/crimson-dragon-flight.webp", "Crimson Dragon with wings extended"],
-    ],
-  },
-  {
-    title: "Roblox UGC",
-    category: "Avatars & Bundles",
-    group: "roblox",
-    images: [
-      ["work/roblox-silver-guardian.png", "Silver Guardian avatar"],
-      ["work/roblox-stone-king.png", "Stone King avatar"],
-      ["work/roblox-golden-stand.png", "Golden Stand avatar"],
     ],
   },
 ];

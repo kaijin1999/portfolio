@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { groups, artworks, thumbnail } from "./collection.js?v=dark-gallery";
+import { groups, artworks, thumbnail } from "./collection.js?v=nov-2026-works";
 import { models, loadArtwork, preciseBounds } from "./model-art.js";
 const host = document.getElementById("room"),
   museum = document.querySelector(".museum"),
