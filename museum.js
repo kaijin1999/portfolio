@@ -1,4 +1,4 @@
-import { groups, artworks, thumbnail } from "./collection.js?v=nov-2026-works";
+import { groups, artworks, thumbnail } from "./collection.js?v=nov-2026-works-2";
 const $ = (s) => document.querySelector(s);
 let currentGroup = "characters",
   filtered = artworks,
@@ -166,7 +166,7 @@ const work = params.get("work");
 if (work !== null && artworks.some((item) => String(item.id) === work)) {
   requestAnimationFrame(() => showArt(work));
 }
-import("./room.js?v=nov-2026-works").catch((error) => {
+import("./room.js?v=nov-2026-works-2").catch((error) => {
   console.error(error);
   $("#gallery-status").innerHTML =
     `The 3D room could not open on this device.<br><br><a href="#collection">Browse all ${artworks.length} artworks below ↗</a>`;
