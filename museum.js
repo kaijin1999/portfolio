@@ -1,11 +1,14 @@
-import { groups, artworks, thumbnail } from "./collection.js?v=nov-2026-works-2";
+import { groups, artworks, thumbnail } from "./collection.js?v=home-1";
 const $ = (s) => document.querySelector(s);
 let currentGroup = "characters",
   filtered = artworks,
   currentArt = 0;
 const pad = (n) => String(n).padStart(2, "0");
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const PAGE_SIZE = 18;
+let shown = PAGE_SIZE;
 document
-  .querySelectorAll(".total-count")
+  .querySelectorAll(".total-count, .total-count-plain")
   .forEach((e) => (e.textContent = artworks.length));
 $("#year").textContent = new Date().getFullYear();
 $("#room-nav").innerHTML = groups
@@ -17,24 +20,37 @@ $("#room-nav").innerHTML = groups
 $("#filters").innerHTML = [{ id: "all", name: "All works" }, ...groups]
   .map(
     (g) =>
-      `<button class="filter ${g.id === "all" ? "selected" : ""}" data-filter="${g.id}" aria-pressed="${g.id === "all"}">${g.name}</button>`,
+      `<button class="filter ${g.id === "all" ? "selected" : ""}" data-filter="${g.id}" aria-pressed="${g.id === "all"}">${g.name}<span class="filter-count">${g.id === "all" ? artworks.length : artworks.filter((a) => a.group === g.id).length}</span></button>`,
   )
   .join("");
-function renderCollection(group) {
+const byNewest = (a, b) =>
+  Number(Boolean(b.featured)) - Number(Boolean(a.featured)) ||
+  (b.added || "").localeCompare(a.added || "") ||
+  b.id - a.id;
+function card(a) {
+  const group = groups.find((g) => g.id === a.group);
+  const badges = [
+    a.featured ? `<span class="badge badge--featured">Featured</span>` : "",
+    a.type === "video" ? `<span class="badge"><i class="badge-play" aria-hidden="true"></i>Video</span>` : "",
+  ].join("");
+  return `<button class="art-card${a.featured ? " is-featured" : ""}" data-art="${a.id}" aria-label="${a.title}, ${group.short}${a.type === "video" ? ", video" : ""}"><span class="art-thumb"><img src="${a.poster || thumbnail(a)}" alt="" loading="lazy" decoding="async" width="800" height="600">${badges ? `<span class="badges">${badges}</span>` : ""}</span><span class="card-text"><span class="card-type">${group.short}</span><span class="card-title">${a.title}</span><span class="card-tags">${a.tags}</span></span></button>`;
+}
+function renderCollection(group, keepShown = false) {
   filtered = (
     group === "all" ? [...artworks] : artworks.filter((a) => a.group === group)
-  ).sort((a, b) => (b.added || "").localeCompare(a.added || ""));
-  $("#result-count").textContent = `${filtered.length} EXHIBITS`;
+  ).sort(byNewest);
+  if (!keepShown) shown = PAGE_SIZE;
+  $("#result-count").textContent = `${filtered.length} ${filtered.length === 1 ? "work" : "works"}`;
   document.querySelectorAll(".filter").forEach((b) => {
     b.classList.toggle("selected", b.dataset.filter === group);
     b.setAttribute("aria-pressed", String(b.dataset.filter === group));
   });
-  $("#art-grid").innerHTML = filtered
-    .map((a) => {
-      const thumb = thumbnail(a);
-      return `<button class="art-card" data-art="${a.id}" aria-label="View ${a.title}${a.type === "video" ? " video" : ""}"><div class="art-thumb">${thumb ? `<img src="${thumb}" alt="${a.title}" loading="lazy" width="800" height="600">` : `<div class="video-placeholder"><span>▷</span><strong>${a.title}</strong><small>${a.group === "unity" ? "REAL-TIME / UNITY" : "MOTION STUDY"}</small></div>`}<span class="card-index">${pad(a.id + 1)} / ${a.type === "video" ? "MOTION" : "ART"}</span><span class="open-art">${a.type === "video" ? "▷" : "↗"}</span></div><div class="card-text"><h3>${a.title}</h3><span class="card-type">${groups.find((g) => g.id === a.group).short.toUpperCase()}</span></div><p>${a.tags}</p></button>`;
-    })
-    .join("");
+  $("#art-grid").innerHTML = filtered.slice(0, shown).map(card).join("");
+  const rest = filtered.length - shown;
+  const more = $("#show-more");
+  more.hidden = rest <= 0;
+  more.textContent = `Show ${Math.min(rest, PAGE_SIZE)} more · ${rest} left`;
+  more.dataset.group = group;
 }
 const params = new URLSearchParams(window.location.search);
 const group = params.get("group");
@@ -43,13 +59,21 @@ $("#filters").addEventListener("click", (e) => {
   const b = e.target.closest("[data-filter]");
   if (b) renderCollection(b.dataset.filter);
 });
+$("#show-more").addEventListener("click", (e) => {
+  const first = shown;
+  shown += PAGE_SIZE;
+  renderCollection(e.currentTarget.dataset.group, true);
+  $(`#art-grid > :nth-child(${first + 1})`)?.focus({ preventScroll: true });
+});
 function showArt(id) {
   currentArt = Number(id);
   const a = artworks.find((artwork) => artwork.id === currentArt);
   if (!a) return;
   $("#art-title").textContent = a.title;
   $("#art-category").textContent =
-    groups.find((g) => g.id === a.group).name + " / EXHIBIT " + pad(a.id + 1);
+    groups.find((g) => g.id === a.group).name +
+    (a.type === "video" ? " · Video" : "") +
+    (a.featured ? " · Featured project" : "");
   $("#art-tags").textContent = a.tags;
   const media = document.createElement(a.type === "video" ? "video" : "img");
   media.src = a.src;
@@ -108,6 +132,37 @@ $("#art-dialog").addEventListener("close", () =>
   $("#art-media").replaceChildren(),
 );
 $("#about-button").onclick = () => $("#about-dialog").showModal();
+$("#about-button-2").onclick = () => $("#about-dialog").showModal();
+document.querySelectorAll("[data-open-art]").forEach((b) =>
+  b.addEventListener("click", () => {
+    const id = Number(b.dataset.openArt);
+    if (!filtered.some((x) => x.id === id)) renderCollection("all");
+    showArt(id);
+  }),
+);
+// Featured preview: muted loop that pauses off-screen, on request, or for reduced motion.
+const featureVideo = $("#feature-video"),
+  featureToggle = $("#feature-toggle");
+let featurePaused = reduceMotion;
+function syncFeature(onScreen = true) {
+  if (featurePaused || !onScreen || document.querySelector("dialog[open]")) featureVideo.pause();
+  else featureVideo.play().catch(() => {});
+  featureToggle.textContent = featurePaused ? "Play preview" : "Pause preview";
+  featureToggle.setAttribute("aria-pressed", String(featurePaused));
+}
+if (featureVideo) {
+  if (reduceMotion) featureVideo.removeAttribute("autoplay");
+  featureToggle.onclick = () => {
+    featurePaused = !featurePaused;
+    syncFeature();
+  };
+  new IntersectionObserver((e) => syncFeature(e[0].isIntersecting)).observe(featureVideo);
+  document.querySelectorAll("dialog").forEach((d) => {
+    d.addEventListener("close", () => syncFeature());
+    new MutationObserver(() => d.open && featureVideo.pause()).observe(d, { attributes: true, attributeFilter: ["open"] });
+  });
+  syncFeature();
+}
 let viewerPromise;
 async function openModel(id = "valkyrie") {
   const d = $("#model-dialog");
@@ -133,12 +188,7 @@ function resetRoom() {
   window.dispatchEvent(new Event("reset-gallery"));
 }
 $("#nav-museum").onclick = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: matchMedia("(prefers-reduced-motion: reduce)").matches
-      ? "instant"
-      : "smooth",
-  });
+  $("#gallery").scrollIntoView({ behavior: reduceMotion ? "instant" : "smooth" });
   resetRoom();
 };
 $("#reset-room").onclick = resetRoom;
@@ -166,8 +216,8 @@ const work = params.get("work");
 if (work !== null && artworks.some((item) => String(item.id) === work)) {
   requestAnimationFrame(() => showArt(work));
 }
-import("./room.js?v=multiverse-2").catch((error) => {
+import("./room.js?v=home-1").catch((error) => {
   console.error(error);
   $("#gallery-status").innerHTML =
-    `The 3D room could not open on this device.<br><br><a href="#collection">Browse all ${artworks.length} artworks below ↗</a>`;
+    `The 3D gallery could not open on this device.<br><br><a href="#collection">Browse all ${artworks.length} works below ↓</a>`;
 });

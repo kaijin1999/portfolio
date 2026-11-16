@@ -21,7 +21,7 @@
     <meta property="og:type" content="website" />
     <meta
       property="og:image"
-      content="assets/work/crimson-dragon-flight.webp"
+      content="https://kaijin1999.github.io/portfolio/assets/work/adventurer-rig-poster.jpg"
     />
     <link
       rel="icon"
@@ -34,29 +34,81 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="museum.css?v=dark-gallery" />
-    <link rel="stylesheet" href="multiverse.css?v=1" />
-    <script src="multiverse.js?v=1" defer></script>
+    <link rel="stylesheet" href="multiverse.css?v=2" />
+    <link rel="stylesheet" href="home.css?v=1" />
+    <script src="multiverse.js?v=2" defer></script>
   </head>
   <body>
-    <a class="skip" href="#collection">Skip to artwork collection</a>
+    <a class="skip" href="#collection">Skip to all work</a>
     <header class="masthead">
-      <a class="brand" href="./" aria-label="Portfolio home"
+      <a class="brand" href="./" aria-label="Jakkarin Sonchai, portfolio home"
         ><span class="brand-mark" aria-hidden="true">J</span
         ><span
-          >JAKKARIN SONCHAI<small>3D ARTIST / DIGITAL COLLECTION</small></span
+          >Jakkarin Sonchai<small>3D character artist &amp; rigger</small></span
         ></a
       >
       <nav aria-label="Main navigation">
-        <button class="nav-button active" id="nav-museum">The museum</button
-        ><a href="#collection">Collection <span class="total-count"></span></a
-        ><button class="nav-button" id="about-button">About the artist</button>
+        <a href="#collection">Work <span class="total-count"></span></a
+        ><button class="nav-button" id="nav-museum">3D gallery</button
+        ><button class="nav-button" id="about-button">About</button>
       </nav>
-      <a class="contact-link" href="mailto:astter2542@gmail.com"
-        >LET’S TALK <span>↗</span></a
+      <a class="contact-link" href="mailto:astter2542@gmail.com?subject=3D%20project%20enquiry"
+        >Email me</a
       >
     </header>
     <main>
-      <section class="museum" aria-label="Interactive 3D art museum">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="hero-kicker">Jakkarin Sonchai · 3D artist in Thailand</p>
+          <h1 id="hero-title" class="gradient-heading">
+            Stylized 3D characters, rigged and ready to move.
+          </h1>
+          <p class="hero-pitch">
+            I model, texture and rig characters for games, VTubers and Roblox,
+            from the first sculpt to a rig your animators enjoy using.
+          </p>
+          <div class="hero-actions">
+            <a class="hero-primary" href="#collection"><span>Browse all <span class="total-count-plain"></span> works</span></a>
+            <a class="hero-secondary" href="mailto:astter2542@gmail.com?subject=3D%20project%20enquiry">Start a project</a>
+          </div>
+          <p class="hero-status"><i aria-hidden="true"></i>Available for freelance and full-time roles</p>
+        </div>
+        <figure class="feature" aria-labelledby="feature-title">
+          <div class="feature-media">
+            <video
+              id="feature-video"
+              src="assets/video/adventurer-rig-hero.mp4"
+              poster="assets/work/adventurer-rig-poster.jpg"
+              muted
+              loop
+              playsinline
+              autoplay
+              preload="auto"
+              aria-label="Preview of the Adventurer character rig in Blender"
+            ></video>
+            <span class="feature-badge">Featured project</span>
+            <button class="feature-toggle" id="feature-toggle" type="button" aria-pressed="false">Pause preview</button>
+          </div>
+          <figcaption class="feature-text">
+            <div>
+              <h2 id="feature-title">Adventurer — Character Rig</h2>
+              <p>
+                An anime adventurer rigged with Auto-Rig Pro and set up for VRM.
+                A custom face panel drives brows, A-I-U-E-O mouth shapes and
+                expressions like happy, angry, sad and surprised.
+              </p>
+              <ul class="feature-tools" aria-label="Tools and techniques">
+                <li>Blender</li><li>Auto-Rig Pro</li><li>Face panel</li><li>VRM</li>
+              </ul>
+            </div>
+            <button class="feature-watch" type="button" data-open-art="159">
+              <span class="play" aria-hidden="true"></span>
+              Watch the full demo <small>1:32</small>
+            </button>
+          </figcaption>
+        </figure>
+      </section>
+      <section class="museum" id="gallery" aria-label="Interactive 3D art museum">
         <div
           id="room"
           tabindex="0"
@@ -64,8 +116,8 @@
         ></div>
         <div class="room-shade"></div>
         <div class="museum-title">
-          <p class="eyebrow">SELECTED WORKS — JAKKARIN SONCHAI</p>
-          <h1 class="gradient-heading">A multiverse of<br />imagined lives.</h1>
+          <p class="eyebrow">The 3D gallery</p>
+          <h2 class="gradient-heading gallery-title">A multiverse of<br />imagined lives.</h2>
           <p class="intro">
             A collection of characters, creatures<br />and the worlds they
             belong to.
@@ -79,7 +131,7 @@
           ><span>EST. IN THAILAND</span>
         </div>
         <aside class="wing-menu" aria-label="Exhibition rooms">
-          <p class="eyebrow">EXPLORE THE WINGS</p>
+          <p class="eyebrow">Explore the wings</p>
           <div id="room-nav"></div>
         </aside>
         <div class="exhibit-caption">
@@ -138,10 +190,10 @@
       <section class="collection" id="collection">
         <div class="collection-heading">
           <div>
-            <p class="eyebrow">THE COMPLETE ARCHIVE</p>
-            <h2 class="gradient-heading">The collection</h2>
+            <p class="eyebrow">Every project, newest first</p>
+            <h2 class="gradient-heading">All work</h2>
           </div>
-          <p>Every piece has a story.<br />Take a closer look.</p>
+          <p>Characters, creatures, Roblox avatars, rigs and animation.<br />Select any piece to see it full size.</p>
         </div>
         <div class="collection-toolbar">
           <div
@@ -152,31 +204,39 @@
           <span id="result-count" aria-live="polite"></span>
         </div>
         <div id="art-grid" class="art-grid"></div>
+        <div class="more-row"><button id="show-more" class="show-more" type="button" hidden></button></div>
       </section>
-      <section class="contact-strip">
-        <p class="eyebrow">OPEN TO NEW COLLABORATIONS</p>
-        <h2 class="gradient-heading">
-          A new world starts<br /><a href="mailto:astter2542@gmail.com"
-            >with a conversation. ↗</a
-          >
-        </h2>
-        <div>
-          <span>Available for freelance & full-time 3D roles.</span
-          ><a
-            href="https://www.artstation.com/tanxzjakkarin6"
-            target="_blank"
-            rel="noopener"
-            >ArtStation ↗</a
-          ><a href="assets/CV.pdf" target="_blank" rel="noopener"
-            >Download CV ↗</a
-          >
+      <section class="studio" id="contact" aria-labelledby="studio-title">
+        <div class="studio-about">
+          <img src="assets/work/portrait.jpg" alt="Portrait of Jakkarin Sonchai" width="160" height="160" loading="lazy" onerror="this.remove()" />
+          <h2 id="studio-title" class="gradient-heading">Let’s build your next character.</h2>
+          <p>
+            I’m Jakkarin Sonchai, a 3D artist based in Ubon Ratchathani,
+            Thailand. At Rievel Games I built game-ready assets end to end, and
+            I now take freelance character, rigging and Roblox UGC work.
+          </p>
+          <div class="studio-actions">
+            <a class="hero-primary" href="mailto:astter2542@gmail.com?subject=3D%20project%20enquiry">Email astter2542@gmail.com</a>
+            <button class="hero-secondary" type="button" id="about-button-2">Read my full profile</button>
+          </div>
+          <p class="studio-links">
+            <a href="https://www.artstation.com/tanxzjakkarin6" target="_blank" rel="noopener">ArtStation ↗</a>
+            <a href="assets/CV.pdf" target="_blank" rel="noopener">Download CV (PDF) ↗</a>
+          </p>
         </div>
+        <ol class="services" aria-label="Services">
+          <li><h3>3D modeling</h3><p>Game-ready characters, creatures, weapons and props with clean silhouettes and topology built for their use.</p></li>
+          <li><h3>Texturing &amp; rendering</h3><p>UV layouts, hand-painted or PBR textures, and renders that show form and materials at their best.</p></li>
+          <li><h3>Rigging &amp; motion</h3><p>Blender rigs, face panels, skin weights and motion studies for characters and creatures.</p></li>
+          <li><h3>Roblox avatars &amp; UGC</h3><p>Stylized avatars, character bundles and accessories built for Roblox.</p></li>
+          <li><h3>Unity &amp; VRM setup</h3><p>Import and setup for models, materials, rigs and animation in Unity, plus VRM avatars.</p></li>
+        </ol>
       </section>
     </main>
     <footer>
       © <span id="year"></span> Jakkarin Sonchai
-      <span>CRAFTED IN THAILAND / EXPLORED EVERYWHERE</span
-      ><a href="#">Back to entrance ↑</a>
+      <span>Made in Ubon Ratchathani, Thailand</span
+      ><a href="#">Back to top ↑</a>
     </footer>
     <dialog id="art-dialog" aria-labelledby="art-title">
       <div class="dialog-top">
@@ -408,6 +468,6 @@
         }
       }
     </script>
-    <script type="module" src="museum.js?v=multiverse-2"></script>
+    <script type="module" src="museum.js?v=home-1"></script>
   </body>
 </html>

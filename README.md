@@ -19,6 +19,8 @@ Jakkarin Sonchai's portfolio at https://kaijin1999.github.io/portfolio/. The hom
 
 The museum's multiverse theme lives in `multiverse.css` (amber timeline palette, Unbounded and IBM Plex Mono type) and `multiverse.js` (the branching-timeline canvas behind the page). The 3D room's timeline walls and amber floor lines are painted in `room.js` with unlit materials.
 
+The home page opens with a featured project. Set `featured: true` (and an optional `poster` image) on one work in `collection.js` to pin it first in the collection with a Featured badge; the hero itself is in `index.html` and plays `assets/video/adventurer-rig-hero.mp4`, a short cropped loop cut from the full demo. `home.css` holds the page layout: sticky header, featured hero, collection cards with paging (18 at a time), and the about, services and contact section.
+
 The museum uses Three.js 0.160.0 via the import map. Fonts are loaded from Google Fonts.
 
 ## Validation
