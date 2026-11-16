@@ -1,0 +1,197 @@
+/* Deep-space theme for the landing page.
+   Loaded after the landing bundle; space.js paints the starfield canvas. */
+
+:root {
+  --void: #04050d;
+  --orbit: #0a0c22;
+  --starlight: #eef3ff;
+  --ion: #7fe3ff;
+  --nebula-violet: #7b3cff;
+  --nebula-magenta: #c23bd4;
+  --ember: #ff8a3d;
+  --dust: #9aa5c8;
+  --ink: var(--void);
+  --mist: #dbe5ff;
+}
+
+html, body, #root { background: var(--void); }
+#root { position: relative; z-index: 1; background: transparent; }
+main.bg-ink { background-color: transparent; }
+::selection { background: var(--ion); color: var(--void); }
+
+#space-sky {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 45% at 85% 8%, #2a114a55 0, transparent 70%),
+    radial-gradient(ellipse 50% 40% at 8% 60%, #0f2a5a40 0, transparent 70%),
+    radial-gradient(ellipse 45% 35% at 70% 95%, #4a0f4630 0, transparent 70%),
+    var(--void);
+}
+
+/* Display type: wide, engineered letterforms for headings */
+.hero-heading, .section-heading, .hero h1, .footer h2,
+.service-number, .project-number, .project-meta h3 {
+  font-family: Unbounded, Kanit, sans-serif;
+}
+.hero-heading {
+  color: var(--starlight);
+  background: linear-gradient(180deg, #ffffff 0%, #cfe0ff 45%, #8f86d8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-heading {
+  font-size: clamp(2.6rem, 8.5vw, 7.5rem);
+  letter-spacing: -0.04em;
+}
+
+/* ---------- Hero: the character stands on a planet's horizon ---------- */
+.hero h1 {
+  font-size: 11.5vw;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.hero-nav a { color: var(--mist); }
+.hero-nav a:hover { opacity: 1; color: var(--ion); }
+
+.hero-halo {
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: none;
+}
+/* the planet */
+.hero-halo::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 72%;
+  width: max(150vw, 1500px);
+  aspect-ratio: 1;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 50% 0%, #1b1747 0, #0b0c26 9%, #05061a 22%, var(--void) 40%);
+  box-shadow:
+    inset 0 2px 1px -1px #e9f7ff,
+    inset 0 14px 30px -12px #7fe3ffaa,
+    inset 0 60px 120px -40px #7b3cff66,
+    0 -2px 18px #7fe3ff66,
+    0 -18px 70px -6px #c23bd455,
+    0 -60px 160px -20px #7b3cff40;
+}
+/* the light behind the character, like a sun about to rise */
+.hero-halo::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 72%;
+  width: min(70vw, 760px);
+  height: min(36vw, 380px);
+  transform: translate(-50%, -62%);
+  background: radial-gradient(ellipse 50% 50% at 50% 70%, #ffd9b8aa 0, #ff8a3d55 18%, #c23bd430 42%, transparent 70%);
+  filter: blur(6px);
+  animation: dawn 9s ease-in-out infinite alternate;
+}
+@keyframes dawn {
+  from { opacity: 0.75; transform: translate(-50%, -60%) scale(0.96); }
+  to { opacity: 1; transform: translate(-50%, -64%) scale(1.04); }
+}
+.magnet img {
+  mask-image: linear-gradient(#000 82%, transparent 99%);
+  filter: drop-shadow(0 0 22px #7fe3ff22);
+}
+.hero-description { color: #c3cdea; }
+.hero-scroll {
+  border-color: #7fe3ff66;
+  background: #04050dcc;
+  color: var(--ion);
+}
+.hero-scroll:hover { background-color: #12163a; }
+
+/* ---------- Buttons ---------- */
+.contact-button {
+  background: linear-gradient(123deg, #1a0b3d 5%, #7b3cff 38%, #c23bd4 70%, #ff8a3d 100%);
+  box-shadow: 0 0 24px #7b3cff55, inset 4px 4px 12px #9a6bff;
+}
+.ghost-button { border-color: #9fb3ff80; }
+.ghost-button:hover { background-color: #7fe3ff14; border-color: var(--ion); color: var(--ion); }
+
+/* ---------- Reel ---------- */
+.reel-label { color: var(--dust); }
+.reel-set img {
+  background: var(--orbit);
+  border: 1px solid #9fb3ff22;
+}
+
+/* ---------- About ---------- */
+.about-copy [aria-hidden] span, .about-copy { color: var(--starlight); }
+
+/* ---------- Services: from a white sheet to a deep orbit panel ---------- */
+.services {
+  color: var(--mist);
+  color-scheme: dark;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, #2b1a6640 0, transparent 70%),
+    linear-gradient(180deg, #0c0e2bee 0%, #070818f2 100%);
+  border-top: 1px solid #9fb3ff30;
+  box-shadow: 0 -30px 80px -40px #7b3cff66;
+}
+.services .section-heading {
+  background: linear-gradient(180deg, #ffffff 0%, #cfe0ff 45%, #8f86d8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.service-item, .service-item:last-child { border-color: #9fb3ff26; }
+.service-number {
+  font-size: clamp(2.4rem, 7vw, 6rem);
+  color: transparent;
+  -webkit-text-stroke: 1.5px #7fe3ffb0;
+}
+.service-grid h3 { color: var(--starlight); letter-spacing: 0.02em; }
+.service-grid p, .price p { color: var(--dust); }
+.price .ghost-button:hover { background-color: #7fe3ff14; }
+
+/* ---------- Projects ---------- */
+.projects {
+  background: linear-gradient(180deg, #060716 0%, #04050df0 30%);
+  border-top: 1px solid #9fb3ff30;
+}
+.project-card {
+  border: 1px solid #9fb3ff40;
+  background:
+    radial-gradient(ellipse 60% 40% at 100% 0%, #7b3cff1f 0, transparent 70%),
+    #070818;
+  box-shadow: 0 -1px 0 #7fe3ff40, 0 30px 80px -30px #000;
+}
+.project-number {
+  font-size: clamp(2rem, 5.5vw, 4.75rem);
+  color: transparent;
+  -webkit-text-stroke: 1.5px #7fe3ffb0;
+}
+.project-meta h3 { letter-spacing: -0.02em; color: var(--starlight); }
+.project-meta .micro { color: var(--dust); }
+.project-images img { background: var(--orbit); }
+
+/* ---------- Footer ---------- */
+.footer { position: relative; }
+.footer-inner, .footer-links { border-color: #9fb3ff30; }
+.footer h2 { font-size: clamp(2.8rem, 8.5vw, 7rem); letter-spacing: -0.04em; }
+.footer-email { color: var(--ion); }
+
+@media (min-width: 640px) {
+  .hero h1 { font-size: 11vw; }
+  .hero-halo::before, .hero-halo::after { top: 80%; }
+}
+@media (min-width: 1024px) {
+  .hero h1 { font-size: min(11vw, 22svh); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-halo::after { animation: none; }
+}

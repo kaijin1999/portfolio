@@ -17,6 +17,8 @@ Jakkarin Sonchai's portfolio at https://kaijin1999.github.io/portfolio/. The lan
 
 `museum.js` handles collection and dialogs. `room.js` owns the gallery and navigation. `model-art.js` shares the model definitions, base-color conversion, precise skinned-model bounds and disposal. `viewer.js` owns the unlit inspector. `museum.css` styles the interface. Legacy themes remain in the repository but are not loaded.
 
+The landing page's deep-space theme lives in `space.css` (colors, Unbounded display type, planet-horizon hero, dark services panel) and `space.js` (starfield canvas, shooting stars, hero heading sized to the screen). `space.css` is imported by `landing/main.tsx` and `space.js` is loaded by `landing.html`, so rebuilds keep them.
+
 Run `npm ci` and `npm run dev` to edit the landing page. Update content in `landing/content.ts`. Run `npm run build` to type-check and regenerate `index.html` and `landing-build/`. Commit both generated paths with landing-page changes so GitHub Pages can continue serving the root of `main`. To preview the production build, serve the repository root with a local static HTTP server.
 
 The museum uses Three.js 0.160.0 via the import map. Fonts are loaded from Google Fonts.

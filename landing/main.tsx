@@ -7,6 +7,7 @@ import {
 import { ArrowDown, ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { about, artstation, email, projects, reels, services, type Project } from "./content";
 import "./style.css";
+import "../space.css";
 
 const asset = (path: string) => `./assets/${path}`;
 const number = (index: number) => String(index + 1).padStart(2, "0");
