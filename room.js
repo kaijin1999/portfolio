@@ -202,7 +202,14 @@ for (const [i, model] of models.entries()) {
   ];
   box(r * 2, 0.72, r * 1.7, model.x, 0.48, model.z, surfaces);
   box(r * 1.94, 0.13, r * 1.64, model.x, 0.07, model.z, plinthBase);
-  box(r * 2, 0.03, r * 1.7, model.x, 0.855, model.z, plinthRim);
+  box(r * 2, 0.03, r * 1.7, model.x, 0.855, model.z, [
+    plinthRim,
+    plinthRim,
+    plinthTop,
+    plinthBase,
+    plinthRim,
+    plinthRim,
+  ]);
   sign(
     `${i === 0 ? "I" : "II"}  /  ${model.name}`,
     r * 1.4,
