@@ -21,6 +21,8 @@ The landing page's deep-space theme lives in `space.css` (colors, Unbounded disp
 
 Run `npm ci` and `npm run dev` to edit the landing page. Update content in `landing/content.ts`. Run `npm run build` to type-check and regenerate `index.html` and `landing-build/`. Commit both generated paths with landing-page changes so GitHub Pages can continue serving the root of `main`. To preview the production build, serve the repository root with a local static HTTP server.
 
+The museum's multiverse theme lives in `multiverse.css` (amber timeline palette, Unbounded and IBM Plex Mono type) and `multiverse.js` (the branching-timeline canvas behind the page). The 3D room's timeline walls and amber floor lines are painted in `room.js` with unlit materials.
+
 The museum uses Three.js 0.160.0 via the import map. Fonts are loaded from Google Fonts.
 
 ## Validation

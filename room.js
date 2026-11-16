@@ -14,7 +14,7 @@ renderer.outputColorSpace = THREE.SRGBColorSpace;
 renderer.toneMapping = THREE.NoToneMapping;
 host.appendChild(renderer.domElement);
 const scene = new THREE.Scene();
-scene.background = new THREE.Color("#191a22");
+scene.background = new THREE.Color("#07050b");
 const camera = new THREE.PerspectiveCamera(54, 1, 0.1, 100);
 let yaw = 0,
   pitch = -0.055,
@@ -38,15 +38,16 @@ function box(w, h, d, x, y, z, material) {
   scene.add(m);
   return m;
 }
-const back = mat("#343641"),
-  left = mat("#22232b"),
-  right = mat("#292a34"),
-  ceiling = mat("#191a22"),
-  floorMat = mat("#242530"),
-  trim = mat("#565663"),
-  joint = mat("#33343f"),
-  rib = mat("#454552"),
-  ceilingStrip = mat("#81708e");
+// Multiverse vault: a dark void lit only by painted amber timelines.
+const back = mat("#120c18"),
+  left = mat("#0d0912"),
+  right = mat("#0f0a15"),
+  ceiling = mat("#07050b"),
+  floorMat = mat("#0b0810"),
+  trim = mat("#ff9d2e"),
+  joint = mat("#6b3d10"),
+  rib = mat("#ffb13b"),
+  ceilingStrip = mat("#ffd27a");
 const floor = box(30, 0.25, 42, 0, -0.14, 5, floorMat);
 floor.userData.floor = true;
 box(30, 10, 0.3, 0, 5, -10, back);
@@ -56,9 +57,10 @@ box(30, 0.3, 42, 0, 10, 5, ceiling);
 box(30, 10, 0.3, 0, 5, 25, back);
 // Architectural seams and ceiling strips are painted onto unlit surfaces.
 for (const x of [-10, -5, 0, 5, 10])
-  box(0.015, 0.006, 40, x, 0.002, 5, joint);
+  box(0.035, 0.006, 40, x, 0.002, 5, joint);
 for (const z of [-5, 2, 9, 16, 23])
-  box(30, 0.006, 0.015, 0, 0.002, z, joint);
+  box(30, 0.006, 0.035, 0, 0.002, z, joint);
+box(0.09, 0.008, 40, 0, 0.004, 5, rib);
 box(29.7, 0.1, 0.03, 0, 0.08, -9.83, trim);
 box(0.03, 0.1, 41, -14.83, 0.08, 5, trim);
 box(0.03, 0.1, 41, 14.83, 0.08, 5, trim);
@@ -66,6 +68,70 @@ for (const x of [-10, 10]) {
   box(0.08, 9, 0.03, x, 4.5, -9.82, rib);
   box(0.42, 0.02, 33, x, 9.81, 5, ceilingStrip);
 }
+// Branching timelines painted onto the walls (an unlit, transparent texture).
+function timelineTexture(seed) {
+  const c = document.createElement("canvas");
+  c.width = 2048;
+  c.height = 683;
+  const g = c.getContext("2d");
+  let n = seed;
+  const rnd = () => (n = (n * 16807) % 2147483647) / 2147483647;
+  const primeY = (t) =>
+    c.height * 0.9 + Math.sin(t * 6 + seed) * 14 + Math.sin(t * 17) * 4;
+  const strands = [{ from: 0, spread: 0, len: 1, color: "255,177,59", width: 5 }];
+  for (let i = 0; i < 14; i++)
+    strands.push({
+      from: rnd() * 0.85,
+      spread: -(0.15 + rnd() * 0.75) * c.height * (rnd() < 0.8 ? 1 : -0.2),
+      len: 0.1 + rnd() * 0.25,
+      color: ["255,177,59", "255,177,59", "255,122,48", "94,230,168", "154,107,255"][
+        (rnd() * 5) | 0
+      ],
+      width: 1.5 + rnd() * 2,
+    });
+  g.lineCap = "round";
+  for (const s of strands) {
+    for (const [blur, alpha, widthScale] of [
+      [28, 0.35, 3],
+      [10, 0.6, 1.6],
+      [0, 1, 0.7],
+    ]) {
+      g.beginPath();
+      for (let i = 0; i <= 120; i++) {
+        const t = s.from + (1 - s.from) * (i / 120);
+        const k = Math.min(1, Math.max(0, (t - s.from) / s.len));
+        const y = primeY(t) + s.spread * k * k * (3 - 2 * k);
+        i ? g.lineTo(t * c.width, y) : g.moveTo(t * c.width, y);
+      }
+      g.shadowBlur = blur;
+      g.shadowColor = `rgba(${s.color},1)`;
+      g.strokeStyle = blur ? `rgba(${s.color},${alpha})` : "rgba(255,240,196,0.95)";
+      g.lineWidth = s.width * widthScale;
+      g.stroke();
+    }
+  }
+  const t = new THREE.CanvasTexture(c);
+  t.colorSpace = THREE.SRGBColorSpace;
+  return t;
+}
+function timelineWall(w, h, x, y, z, rotation, seed) {
+  const m = new THREE.Mesh(
+    new THREE.PlaneGeometry(w, h),
+    new THREE.MeshBasicMaterial({
+      map: timelineTexture(seed),
+      transparent: true,
+      depthWrite: false,
+      toneMapped: false,
+    }),
+  );
+  m.position.set(x, y, z);
+  m.rotation.y = rotation;
+  scene.add(m);
+}
+timelineWall(29.6, 9.8, 0, 5, -9.84, 0, 11);
+timelineWall(41, 9.8, -14.84, 5, 5, Math.PI / 2, 29);
+timelineWall(41, 9.8, 14.84, 5, 5, -Math.PI / 2, 47);
+timelineWall(29.6, 9.8, 0, 5, 24.84, Math.PI, 83);
 // Canvas labels use the page's display face when the font is available.
 await Promise.race([
   document.fonts.load("600 70px Kanit").catch(() => {}),
@@ -77,7 +143,7 @@ function label(
     width = 1536,
     height = 180,
     size = 70,
-    color = "#d7e2ea",
+    color = "#f5ecdc",
     weight = 600,
   } = {},
 ) {
@@ -113,16 +179,17 @@ const roomSign = sign("The character collection", 12, 1.2, 0, 7.8, -9.8, {
 });
 sign("J A K K A R I N   S O N C H A I", 9, 0.6, 0, 6.7, -9.79, {
   size: 46,
-  color: "#abb6c3",
+  color: "#ffb13b",
   weight: 400,
 });
 sign("The Artist’s Gallery", 9, 1, 0, 5, 24.8).rotation.y = Math.PI;
 const sculptures = [];
-const plinthTop = mat("#656374");
-const plinthSide = mat("#373843");
-const plinthBase = mat("#2a2a34");
-const plinthFront = mat("#494959");
-const plinthRear = mat("#3e3e4c");
+const plinthTop = mat("#2a1f33");
+const plinthSide = mat("#16101d");
+const plinthBase = mat("#0e0a13");
+const plinthFront = mat("#1e1626");
+const plinthRear = mat("#1a1321");
+const plinthRim = mat("#ffb13b");
 for (const [i, model] of models.entries()) {
   const r = model.radius - 0.4;
   const surfaces = [
@@ -135,7 +202,7 @@ for (const [i, model] of models.entries()) {
   ];
   box(r * 2, 0.72, r * 1.7, model.x, 0.48, model.z, surfaces);
   box(r * 1.94, 0.13, r * 1.64, model.x, 0.07, model.z, plinthBase);
-  box(r * 2, 0.03, r * 1.7, model.x, 0.855, model.z, plinthTop);
+  box(r * 2, 0.03, r * 1.7, model.x, 0.855, model.z, plinthRim);
   sign(
     `${i === 0 ? "I" : "II"}  /  ${model.name}`,
     r * 1.4,
@@ -230,12 +297,12 @@ function setPanels() {
     panels.push(p);
     const frame = new THREE.Mesh(
       new THREE.BoxGeometry(5.1, 3.5, 0.1),
-      mat("#92909f"),
+      mat("#c98a2e"),
     );
     p.add(frame);
     const mount = new THREE.Mesh(
       new THREE.PlaneGeometry(4.97, 3.37),
-      mat("#17171f"),
+      mat("#0b0810"),
     );
     mount.position.z = 0.06;
     mount.userData.art = a.id;
@@ -280,7 +347,7 @@ function setPanels() {
       new THREE.MeshBasicMaterial({
         map: label(
           `${String(a.id + 1).padStart(2, "0")}   /   ${a.type === "video" ? "MOVING IMAGE" : "ARTWORK"}`,
-          { size: 80, color: "#abb6c3", weight: 400 },
+          { size: 80, color: "#e3b673", weight: 400 },
         ),
         transparent: true,
         toneMapped: false,

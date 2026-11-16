@@ -1,0 +1,147 @@
+/* Multiverse theme for the museum page: branching timelines in amber light
+   over a dark void. Loaded after museum.css; multiverse.js draws the timelines. */
+
+:root {
+  --bg: #07050b;
+  --surface: #0e0a13;
+  --panel: #120d17ee;
+  --line: #ffb13b2e;
+  --muted: #bcae99;
+  --ink: #f5ecdc;
+  --accent: #ffb13b;
+  --prime: #ffb13b;
+  --prime-hot: #fff0c4;
+  --variant-jade: #5ee6a8;
+  --variant-violet: #9a6bff;
+  --headline: linear-gradient(180deg, #fff6e2 0%, #ffd38a 52%, #ff8a2a 100%);
+  --action: linear-gradient(120deg, #e07514 0%, #ff9b2a 45%, #ffd27a 100%);
+  --mono: "IBM Plex Mono", ui-monospace, monospace;
+  --display: Kanit, sans-serif;
+  --wide: Unbounded, Kanit, sans-serif;
+}
+
+body { background: var(--bg); }
+main, footer { position: relative; z-index: 1; }
+.masthead { background: #07050bf2; backdrop-filter: blur(8px); }
+
+#timeline-loom {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Display type */
+.museum-title h1, .collection-heading h2, .contact-strip h2, .brand-mark,
+#about-dialog h2, .art-meta h2 {
+  font-family: var(--wide);
+}
+.museum-title h1 { letter-spacing: -0.035em; font-size: clamp(2.2rem, 3.9vw, 4.5rem); }
+.collection-heading h2 { letter-spacing: -0.04em; font-size: clamp(2.6rem, 6.6vw, 6.8rem); }
+.contact-strip h2 { letter-spacing: -0.035em; font-size: clamp(2rem, 5vw, 5.4rem); }
+.gradient-heading { color: #ffd38a; filter: drop-shadow(0 0 22px #ff8a2a33); }
+.brand-mark {
+  background: var(--headline);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---------- Hero over the 3D room ---------- */
+.museum { background: transparent; }
+.room-shade {
+  background:
+    linear-gradient(90deg, #07050bf2, #07050bcc 13%, transparent 38%),
+    linear-gradient(180deg, #07050bd0 0, transparent 32%, transparent 64%, #07050bf0 100%);
+}
+.walk-entry {
+  color: #1a0b00;
+  font-weight: 600;
+  outline-color: #fff0c4;
+  box-shadow: 0 0 26px #ff8a2a55, inset 3px 3px 10px #ffd27a99;
+}
+.walk-entry:hover { color: #1a0b00; }
+.room-tag b { color: var(--prime-hot); }
+.wing-button { transition: color 200ms; }
+.wing-button:hover { color: var(--prime); }
+.wing-button.selected:before {
+  width: 18px;
+  height: 2px;
+  left: -26px;
+  border-radius: 2px;
+  background: var(--prime);
+  box-shadow: 0 0 10px var(--prime);
+}
+.exhibit-number { color: var(--prime); }
+.room-actions button, .detail-nav button, .close-dialog {
+  border-color: var(--line);
+}
+.room-actions button:hover, .detail-nav button:hover { color: var(--prime); border-color: var(--prime); }
+
+/* ---------- Collection ---------- */
+.collection-toolbar { border-color: var(--line); }
+.filter { background: #0e0a13cc; transition: background-color 200ms, border-color 200ms, color 200ms; }
+.filter:hover { border-color: var(--prime); color: var(--prime); }
+.filter.selected {
+  color: #1a0b00;
+  border-color: var(--prime);
+  background: linear-gradient(180deg, #ffd27a, #ff9b2a);
+  box-shadow: 0 0 18px #ff8a2a44;
+}
+#result-count { color: var(--prime); }
+
+.art-card {
+  background: linear-gradient(180deg, #120d18f2, #0b0810f5);
+  border-color: #ffb13b26;
+  transition: border-color 200ms, box-shadow 300ms;
+}
+.art-card:hover {
+  border-color: #ffb13bb0;
+  box-shadow: 0 0 0 1px #ffb13b40, 0 0 40px -8px #ff8a2a66;
+}
+.art-thumb { background: #08060c; }
+.card-index {
+  background: #07050be6;
+  color: var(--prime);
+  border: 1px solid #ffb13b40;
+  letter-spacing: 0.04em;
+}
+.open-art { background: #07050be6; border-color: #ffb13b55; color: var(--prime-hot); }
+.art-card:hover .open-art { background: var(--prime); color: #1a0b00; border-color: var(--prime); }
+.art-card h3 { color: var(--ink); }
+.card-type { color: #e3b673; }
+.video-placeholder { background: radial-gradient(ellipse at 50% 60%, #2a1505, #08060c 70%); }
+
+/* ---------- Contact strip + footer ---------- */
+.contact-strip {
+  background: linear-gradient(180deg, #07050bcc, #07050bf5);
+  border-color: var(--line);
+}
+.contact-strip h2 a:hover { -webkit-text-fill-color: var(--prime-hot); }
+.contact-strip > div a:hover, footer a:hover { color: var(--prime); }
+footer { background: #07050b; }
+
+/* ---------- Dialogs ---------- */
+dialog {
+  background: linear-gradient(180deg, #110c16, #0a070e);
+  border-color: #ffb13b40;
+  box-shadow: 0 0 0 1px #ffb13b14, 0 30px 120px #000c, 0 0 80px -30px #ff8a2a55;
+}
+dialog::backdrop { background: #07050be0; }
+.dialog-top .eyebrow { color: var(--prime); }
+.charbtn.is-active { border-color: var(--prime); }
+#about-dialog .chips li { border-color: #ffb13b40; }
+.timeline__year { color: var(--prime); }
+
+@media (max-width: 760px) {
+  .room-shade {
+    background: linear-gradient(180deg, #07050bf0 0, #07050bb3 24%, transparent 42%, transparent 58%, #07050be8);
+  }
+  .wing-button.selected {
+    border-color: var(--prime);
+    background: #2a1806;
+    color: var(--prime-hot);
+  }
+}
