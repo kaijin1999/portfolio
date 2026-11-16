@@ -1,6 +1,6 @@
 # Jack — 3D Creator
 
-Jakkarin Sonchai's portfolio at https://kaijin1999.github.io/portfolio/. The landing page uses React, TypeScript, Tailwind CSS, Framer Motion and Lucide React. The interactive 3D gallery and full artwork collection live at `museum.html`.
+Jakkarin Sonchai's portfolio at https://kaijin1999.github.io/portfolio/. The home page (`index.html`) is the interactive 3D gallery and full artwork collection. `museum.html` redirects old links to the home page.
 
 ## Visiting
 
@@ -16,10 +16,6 @@ Jakkarin Sonchai's portfolio at https://kaijin1999.github.io/portfolio/. The lan
 `collection.js` contains artwork categories and metadata. Original media live in `assets/`; optimized image and real-video-frame previews are in `assets/thumbs/`.
 
 `museum.js` handles collection and dialogs. `room.js` owns the gallery and navigation. `model-art.js` shares the model definitions, base-color conversion, precise skinned-model bounds and disposal. `viewer.js` owns the unlit inspector. `museum.css` styles the interface. Legacy themes remain in the repository but are not loaded.
-
-The landing page's deep-space theme lives in `space.css` (colors, Unbounded display type, planet-horizon hero, dark services panel) and `space.js` (starfield canvas, shooting stars, hero heading sized to the screen). `space.css` is imported by `landing/main.tsx` and `space.js` is loaded by `landing.html`, so rebuilds keep them.
-
-Run `npm ci` and `npm run dev` to edit the landing page. Update content in `landing/content.ts`. Run `npm run build` to type-check and regenerate `index.html` and `landing-build/`. Commit both generated paths with landing-page changes so GitHub Pages can continue serving the root of `main`. To preview the production build, serve the repository root with a local static HTTP server.
 
 The museum's multiverse theme lives in `multiverse.css` (amber timeline palette, Unbounded and IBM Plex Mono type) and `multiverse.js` (the branching-timeline canvas behind the page). The 3D room's timeline walls and amber floor lines are painted in `room.js` with unlit materials.
 
