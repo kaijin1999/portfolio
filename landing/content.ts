@@ -18,10 +18,8 @@ export const reels: readonly (readonly Image[])[] = [
   [
     ["crimson-dragon-flight", "Crimson Dragon in flight"],
     ["char-seraph", "Nocturne Seraph turnaround"],
-    ["beldia-armor", "Beldia armor texture study"],
     ["video-kriger", "Kriger animation study"],
     ["new-rig-phoenix", "Phoenix creature rig"],
-    ["kaijin-unity", "Kaijin sword attack in Unity"],
     ["roblox-golden-stand", "Golden Stand Roblox avatar"],
     ["video-serpent-animation-showcase", "Serpent animation showcase"],
     ["char-oni", "Oni Maiden character sheet"],
@@ -33,11 +31,8 @@ export const reels: readonly (readonly Image[])[] = [
     ["video-turn-seraph", "Nocturne Seraph turntable"],
     ["new-rig-ancient-dragon", "Ancient Dragon rig"],
     ["oni-unity-shader", "Oni toon shader study in Unity"],
-    ["video-glowmoss-frog", "Glowmoss Frog jump"],
-    ["briefcase-crma", "CRMA briefcase hardware detail"],
     ["video-rig-mech-5", "Mechanical rig study"],
     ["roblox-dio", "DIO Roblox avatar"],
-    ["new-frog-avatar", "Frog avatar"],
     ["weapon-pack", "Stylized weapon pack"],
   ],
 ];
